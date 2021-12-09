@@ -1,3 +1,7 @@
+/**
+ * github
+ * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/imports.js#L71
+ */
 module.exports = {
   root: true,
   env: {
