@@ -5,8 +5,11 @@
     <div class="flex-shrink-0">
       <img class="h-12 w-12" src="./assets/logo.png" alt="ChitChat Logo" />
     </div>
+    <router-link :to="{ name: 'Dashboard' }">Dasboard</router-link>
+    <router-link :to="{ name: 'System' }">System</router-link>
     <h1 class="text-3xl font-bold underline">Hello world!</h1>
   </div>
+  <RouterView />
 </template>
 
 <script setup lang="ts"></script>

@@ -17,6 +17,14 @@
       "./node_modules/@types/",
       "./types"
     ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "#/*": [
+        "types/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",

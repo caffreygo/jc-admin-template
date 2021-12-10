@@ -1,10 +1,14 @@
-// main.ts
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import './styles/index.scss';
+
 import { createApp } from 'vue';
 import App from './App.vue';
-import './styles/index.scss';
+import { setupRouter } from './router/index';
 
 function bootstrap() {
   const app = createApp(App);
+  setupRouter(app);
   app.mount('#app');
 }
 

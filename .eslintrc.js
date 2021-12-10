@@ -2,12 +2,16 @@
  * github
  * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/imports.js#L71
  */
-module.exports = {
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
   root: true,
   env: {
-    browser: true, // browser global variables
-    es2021: true, // adds all ECMAScript 2021 globals and automatically sets the ecmaVersion parser option to 12.
+    browser: true,
+    node: true,
+    es6: true,
   },
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 12,
     parser: '@typescript-eslint/parser',
@@ -15,8 +19,9 @@ module.exports = {
   plugins: ['prettier'],
   extends: [
     'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
     'airbnb-base',
-    'plugin:prettier/recommended', // ++
+    'plugin:prettier/recommended',
   ],
   globals: {
     defineProps: 'readonly',
@@ -26,6 +31,9 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -83,10 +91,11 @@ module.exports = {
       'ignorePackages',
       {
         js: 'never',
-        mjs: 'never',
         jsx: 'never',
         ts: 'never',
+        tsx: 'never',
+        mjs: 'never',
       },
     ],
   },
-};
+});
