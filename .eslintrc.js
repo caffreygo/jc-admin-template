@@ -1,7 +1,3 @@
-/**
- * github
- * https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/imports.js#L71
- */
 const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
@@ -13,14 +9,18 @@ module.exports = defineConfig({
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 2020,
     parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   plugins: ['prettier'],
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'airbnb-base',
+    'prettier',
     'plugin:prettier/recommended',
   ],
   globals: {
@@ -30,72 +30,18 @@ module.exports = defineConfig({
     withDefaults: 'readonly',
   },
   rules: {
-    'prettier/prettier': 'error',
-    '@typescript-eslint/no-var-requires': 'off',
+    'vue/script-setup-uses-vars': 'error',
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    'vue/custom-event-name-casing': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/ban-types': 'off',
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: [
-          'test/**', // tape, common npm pattern
-          'tests/**', // also common npm pattern
-          'spec/**', // mocha, rspec-like pattern
-          '**/__tests__/**', // jest pattern
-          '**/__mocks__/**', // jest pattern
-          'test.{js,jsx}', // repos with a single test file
-          'test-*.{js,jsx}', // repos with multiple top-level test files
-          '**/*{.,_}{test,spec}.{js,jsx}', // tests where the extension or filename suffix denotes that it is a test
-          '**/jest.config.js', // jest config
-          '**/jest.setup.js', // jest setup
-          '**/vue.config.js', // vue-cli config
-          '**/webpack.config.js', // webpack config
-          '**/webpack.config.*.js', // webpack config
-          '**/rollup.config.js', // rollup config
-          '**/rollup.config.*.js', // rollup config
-          '**/gulpfile.js', // gulp config
-          '**/gulpfile.*.js', // gulp config
-          '**/Gruntfile{,.js}', // grunt config
-          '**/protractor.conf.js', // protractor config
-          '**/protractor.conf.*.js', // protractor config
-          '**/karma.conf.js', // karma config
-          '**/.eslintrc.js', // eslint config
-          '**vite**',
-          '**@vitejs**',
-        ],
-        optionalDependencies: false,
-      },
-    ],
-    'no-param-reassign': [
-      'error',
-      {
-        props: true,
-        ignorePropertyModificationsFor: [
-          'acc', // for reduce accumulators
-          'accumulator', // for reduce accumulators
-          'e', // for e.returnvalue
-          'ctx', // for Koa routing
-          'context', // for Koa routing
-          'req', // for Express requests
-          'request', // for Express requests
-          'res', // for Express responses
-          'response', // for Express responses
-          '$scope', // for Angular 1 scopes
-          'staticContext', // for ReactRouter context
-          'state', // for vuex state
-        ],
-      },
-    ],
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-        mjs: 'never',
-      },
-    ],
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 });

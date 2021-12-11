@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
 import './styles/index.scss';
 
 import { createApp } from 'vue';
