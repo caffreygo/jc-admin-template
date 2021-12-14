@@ -1,7 +1,7 @@
 import type { App } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Dashboard from '../views/dashboard/index.vue';
-import System from '../views/system/index.vue';
+import Dashboard from '@/views/dashboard/index.vue';
+import System from '@/views/system/index.vue';
 
 export const router = createRouter({
   history: createWebHashHistory(),

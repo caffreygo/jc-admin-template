@@ -32,6 +32,7 @@
     "scss.validate": false,
     "css.validate": false,
     "path-intellisense.mappings": {
-        "/@/": "${workspaceRoot}/src"
+        "@": "${workspaceRoot}/src",
+        "#": "${workspaceRoot}/types",
     },
 }
