@@ -1,7 +1,5 @@
 <template>
-  <router-link :to="{ name: 'Dashboard' }">Dasboard</router-link>
-  <router-link :to="{ name: 'System' }">System</router-link>
-  <RouterView />
+  <router-view />
 </template>
 
 <script setup lang="ts"></script>

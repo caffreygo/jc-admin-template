@@ -1,7 +1,6 @@
 <template>
   <div class="m-20">
     <h2>{{ text }}</h2>
-    <a-button type="primary">Primary Button</a-button>
   </div>
 </template>
 

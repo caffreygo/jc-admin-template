@@ -15,7 +15,6 @@
     ]
   },
   "dependencies": {
-    "ant-design-vue": "^3.0.0-alpha.14",
     "vue": "^3.2.23",
     "vue-router": "^4.0.12"
   },
