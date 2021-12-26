@@ -1,15 +1,10 @@
 import type { App } from 'vue';
+import routes from './routes';
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index.vue'),
-    },
-  ],
+  routes,
 });
 
 export function setupRouter(app: App<Element>) {
