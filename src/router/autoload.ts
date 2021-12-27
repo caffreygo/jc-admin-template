@@ -31,7 +31,8 @@ function getRouteByModule(file: string, module: { [key: string]: any }) {
     path: `/${name}`,
     component: module.default,
   } as RouteRecordRaw;
-  return route;
+  // route property of component can override the route definition
+  return Object.assign(route, module.default?.route);
 }
 
 export default getRoutes();

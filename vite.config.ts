@@ -1,16 +1,17 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { ConfigEnv, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import alias from './vite/alias';
+import { parseEnv } from './vite/utils';
 
-export default defineConfig({
-  plugins: [vue()],
-  server: {
-    port: 1024,
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-      '#': resolve(__dirname, 'types'),
+export default ({ mode }: ConfigEnv) => {
+  // const isBuild = command === 'build';
+  const root = process.cwd();
+  const env = parseEnv(loadEnv(mode, root));
+  console.log(env);
+  return {
+    plugins: [vue()],
+    resolve: {
+      alias,
     },
-  },
-});
+  };
+};
