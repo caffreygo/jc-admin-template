@@ -3,8 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import helper from './types/helper';
+import { env } from './types/helper';
 
-console.log(helper.env);
-console.log(typeof import.meta.env.VITE_SOME_KEY);
+console.log(env);
 </script>
