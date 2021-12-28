@@ -1,5 +1,5 @@
 <template>
-  <h2>admin.vue</h2>
+  <h2 class="bg-slate-200">admin.vue</h2>
   <router-view />
 </template>
 
