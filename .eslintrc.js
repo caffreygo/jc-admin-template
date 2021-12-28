@@ -30,6 +30,8 @@ module.exports = defineConfig({
     withDefaults: 'readonly',
   },
   rules: {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
     'vue/script-setup-uses-vars': 'error',
     'vue/multi-word-component-names': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
