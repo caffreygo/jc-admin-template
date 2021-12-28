@@ -2,4 +2,6 @@
   <router-view />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+console.log(typeof import.meta.env.VITE_SOME_KEY);
+</script>
