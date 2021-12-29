@@ -1,6 +1,6 @@
 import { http } from '@/plugins/axios';
 
-interface User {
+export interface User {
   name: string;
   age: number;
   avatar: string;
@@ -8,8 +8,18 @@ interface User {
 
 function info() {
   return http.request<User>({
-    url: '/user/get',
+    url: 'info',
   });
 }
 
-export default { info };
+interface LoginInterface {
+  token: string;
+}
+
+function login() {
+  return http.request<LoginInterface>({
+    url: 'login',
+  });
+}
+
+export default { info, login };

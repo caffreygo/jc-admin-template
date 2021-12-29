@@ -7,7 +7,7 @@ import { onMounted } from 'vue';
 import userApi from './api/userApi';
 
 onMounted(async () => {
-  const response = await userApi.info();
-  console.log(response.data);
+  const response = await userApi.login();
+  console.log(response.data.token);
 });
 </script>
