@@ -3,6 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import * as userApi from './api/userApi';
-await userApi.info();
+import { info } from './api/userApi';
+await info();
 </script>

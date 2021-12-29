@@ -13,11 +13,11 @@ export default class Axios {
   }
 
   private interceptors() {
-    this.interceptorsRequest();
-    this.interceptorsResponse();
+    this.requestIntereptor();
+    this.responseInterceptor();
   }
 
-  private interceptorsRequest() {
+  private requestIntereptor() {
     this.instance.interceptors.request.use(
       (config) => {
         return config;
@@ -28,7 +28,7 @@ export default class Axios {
     );
   }
 
-  private interceptorsResponse() {
+  private responseInterceptor() {
     this.instance.interceptors.response.use(
       (response) => {
         return response;
