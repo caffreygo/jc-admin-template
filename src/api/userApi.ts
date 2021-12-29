@@ -1,8 +1,14 @@
 import { http } from '@/plugins/axios';
 
+interface User {
+  name: string;
+  age: number;
+  avatar: string;
+}
+
 function info() {
-  return http.request({
-    url: 'user/get',
+  return http.request<User>({
+    url: '/user/get',
   });
 }
 

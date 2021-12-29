@@ -3,7 +3,11 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import userApi from './api/userApi';
-const response = await userApi.info();
-console.log(response.data);
+
+onMounted(async () => {
+  const response = await userApi.info();
+  console.log(response.data);
+});
 </script>

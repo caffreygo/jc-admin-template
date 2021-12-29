@@ -12,6 +12,7 @@ export default [
         data: {
           name: 'Jerry Chen',
           age: 18,
+          avatar: 'avatar.jpg',
         },
       };
     },
