@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { info } from './api/userApi';
-await info();
+import userApi from './api/userApi';
+const response = await userApi.info();
+console.log(response.data);
 </script>

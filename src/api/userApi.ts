@@ -6,4 +6,4 @@ function info() {
   });
 }
 
-export { info };
+export default { info };

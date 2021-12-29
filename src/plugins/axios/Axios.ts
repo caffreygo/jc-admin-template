@@ -9,7 +9,7 @@ export default class Axios {
   }
 
   public request<T>(config: AxiosRequestConfig) {
-    // this.instance.request<ResponseResult<T>>();
+    return this.instance.request(config);
   }
 
   private interceptors() {
