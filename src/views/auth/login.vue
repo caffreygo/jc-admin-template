@@ -4,7 +4,7 @@
       class="w-[720px] bg-white -translate-y-16 grid grid-cols-2 rounded-md shadow-md overflow-hidden"
     >
       <div class="p-6">
-        <h2 class="text-center text-gray-700 text-lg">会员登录</h2>
+        <h2 class="text-center text-gray-700 text-lg mt-3">会员登录</h2>
         <div class="mt-8">
           <input
             type="text"
@@ -17,7 +17,12 @@
             class="jc-input mt-4"
           />
         </div>
-        <button class="jc-button mt-3">登录</button>
+        <button class="jc-button mt-5">登录</button>
+        <div class="flex gap-2 justify-center mt-5">
+          <a href="" class="text-xs text-gray-700">网站首页</a>
+          <a href="" class="text-xs text-gray-700">会员注册</a>
+          <a href="" class="text-xs text-gray-700">找回密码</a>
+        </div>
       </div>
       <div>
         <img src="/images/login.jpg" class="h-80 w-full object-cover" />
