@@ -17,6 +17,7 @@
             class="jc-input mt-4"
           />
         </div>
+        <button class="jc-button mt-3">登录</button>
       </div>
       <div>
         <img src="/images/login.jpg" class="h-80 w-full object-cover" />
@@ -30,5 +31,8 @@
 <style lang="scss" scoped>
 .jc-input {
   @apply border border-gray-200 w-full rounded-sm py-1 px-2 outline-none placeholder:text-xs focus:ring-2 ring-offset-2 ring-violet-400 duration-300 focus:border-white;
+}
+.jc-button {
+  @apply bg-violet-700 text-white w-full py-2 rounded-md hover:bg-violet-500 duration-300;
 }
 </style>
