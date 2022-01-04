@@ -8,22 +8,15 @@
       <div class="p-6">
         <h2 class="text-center text-gray-700 text-lg mt-3">会员登录</h2>
         <div class="mt-8">
-          <input
-            type="text"
-            placeholder="请输入手机号或邮箱"
-            class="jc-input"
-          />
-          <input
-            type="text"
-            placeholder="请输入手机号或邮箱"
-            class="jc-input mt-4"
-          />
+          <jc-input />
+          <jc-input class="mt-4" />
         </div>
-        <button class="jc-button mt-5">登录</button>
+        <jc-button class="mt-5" />
         <div class="flex gap-2 justify-center mt-5">
-          <a href="" class="text-xs text-gray-700">网站首页</a>
-          <a href="" class="text-xs text-gray-700">会员注册</a>
-          <a href="" class="text-xs text-gray-700">找回密码</a>
+          <jc-link />
+          <jc-link />
+          <jc-link />
+          <jc-link />
         </div>
       </div>
       <div class="hidden md:block">
@@ -33,13 +26,10 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import JcInput from '@/components/form/jc-input.vue';
+import JcButton from '@/components/form/jc-button.vue';
+import JcLink from '@/components/form/jc-link.vue';
+</script>
 
-<style lang="scss" scoped>
-.jc-input {
-  @apply border border-gray-200 w-full rounded-sm py-1 px-2 outline-none placeholder:text-xs focus:ring-2 ring-offset-2 ring-violet-400 duration-300 focus:border-white;
-}
-.jc-button {
-  @apply bg-violet-700 text-white w-full py-2 rounded-md hover:bg-violet-500 duration-300;
-}
-</style>
+<style lang="scss" scoped></style>
