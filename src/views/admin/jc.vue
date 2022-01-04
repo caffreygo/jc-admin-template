@@ -4,7 +4,7 @@
       v-slot="{ field, errorMessage }"
       v-model="account"
       name="account"
-      :rules="emailRule"
+      :rules="{ required: true, email: true }"
       :validate-on-input="true"
     >
       <input v-model="account" v-bind="field" />
@@ -17,13 +17,17 @@
 </template>
 
 <script setup lang="ts">
-import { Form, Field, ErrorMessage } from 'vee-validate';
+import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
+import { required, email } from '@vee-validate/rules';
 import { ref } from 'vue';
 
 const account = ref<string>('JerryChen');
-const emailRule = (value: any) => {
-  return /@/.test(value) ? true : '邮箱格式错误';
-};
+
+defineRule('required', required);
+defineRule('email', email);
+// const emailRule = (value: any) => {
+//   return /@/.test(value) ? true : '邮箱格式错误';
+// };
 
 const onSubmit = (value: any) => {
   alert('验证通过！');
