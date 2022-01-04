@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = createApp(App);
 
   setupRouter(app);
-  setupPlugins();
+  setupPlugins(app);
 
   await router.isReady();
   app.mount('#app');

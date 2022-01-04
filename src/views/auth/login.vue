@@ -26,10 +26,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import JcInput from '@/components/form/jc-input.vue';
-import JcButton from '@/components/form/jc-button.vue';
-import JcLink from '@/components/form/jc-link.vue';
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped></style>
