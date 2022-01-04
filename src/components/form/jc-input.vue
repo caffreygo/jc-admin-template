@@ -1,8 +1,24 @@
 <template>
-  <input type="text" placeholder="请输入手机号或邮箱" class="jc-input" />
+  <input
+    type="text"
+    :value="modelValue"
+    class="jc-input"
+    @input="$emit('update:modelValue', $event.target?.value)"
+  />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: '',
+  },
+});
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void;
+}>();
+</script>
 
 <style lang="scss" scoped>
 .jc-input {

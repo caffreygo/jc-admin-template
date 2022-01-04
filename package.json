@@ -15,10 +15,14 @@
     ]
   },
   "dependencies": {
+    "@vee-validate/i18n": "^4.5.7",
+    "@vee-validate/rules": "^4.5.7",
     "axios": "^0.24.0",
     "mockjs": "^1.1.0",
+    "vee-validate": "^4.5.7",
     "vue": "^3.2.23",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.178",

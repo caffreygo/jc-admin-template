@@ -9,7 +9,7 @@ console.log(import.meta.env);
 <script lang="ts">
 export default {
   route: {
-    path: '/user',
+    path: '/user/:id',
     name: 'user',
   },
 };

@@ -8,8 +8,8 @@
       <div class="p-6">
         <h2 class="text-center text-gray-700 text-lg mt-3">会员登录</h2>
         <div class="mt-8">
-          <jc-input />
-          <jc-input class="mt-4" />
+          <jc-input v-model="form.account" placeholder="请输入手机号或邮箱" />
+          <jc-input class="mt-4" placeholder="请输入登录密码" />
         </div>
         <jc-button class="mt-5" />
         <div class="flex gap-2 justify-center mt-5">
@@ -26,6 +26,13 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { reactive } from '@vue/reactivity';
+
+const form = reactive({
+  account: 'JerryChen',
+  password: '',
+});
+</script>
 
 <style lang="scss" scoped></style>
