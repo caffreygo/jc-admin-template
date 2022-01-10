@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <form @submit="onSubmit">
     <input v-model="usernameValue" type="text" />
-    <p>{{ usernameError }}</p>
-  </div>
+    <p>{{ errors.username }}</p>
+    <button>提交</button>
+  </form>
 </template>
 
 <script setup lang="ts">
-import { defineRule, useField, configure } from 'vee-validate';
+import { defineRule, useField, useForm, configure } from 'vee-validate';
 import { required, email } from '@vee-validate/rules';
 import { localize } from '@vee-validate/i18n';
 import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json';
@@ -18,7 +19,14 @@ configure({
   generateMessage: localize('zh_CN', zh_CN),
 });
 
-const { errorMessage: usernameError, value: usernameValue } = useField(
+const { handleSubmit, errors } = useForm();
+
+const onSubmit = handleSubmit((value) => {
+  console.log(value);
+  alert('提交成功');
+});
+
+const { value: usernameValue } = useField(
   'username',
   {
     required: true,
@@ -31,8 +39,8 @@ const { errorMessage: usernameError, value: usernameValue } = useField(
 </script>
 
 <style lang="scss" scoped>
-div {
-  @apply flex w-screen h-screen justify-center items-center bg-gray-200;
+form {
+  @apply flex w-screen h-screen flex-col justify-center items-center bg-gray-200;
   input {
     @apply border p-2 rounded-md border-violet-500 outline-none;
   }
