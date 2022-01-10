@@ -33,8 +33,8 @@ const { handleSubmit, errors } = v.useForm({
     password: '',
   },
   validationSchema: {
-    username: v.yup.string().required('用户名不能为空').email(),
-    password: v.yup.string().required('密码不能为空'),
+    username: v.yup.string().required().email().label('账号'),
+    password: v.yup.string().required().label('密码'),
   },
 });
 
