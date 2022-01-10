@@ -13,27 +13,28 @@
 </template>
 
 <script setup lang="ts">
-import { defineRule, useField, useForm, configure } from 'vee-validate';
-import { required, email } from '@vee-validate/rules';
-import { localize } from '@vee-validate/i18n';
-import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json';
-import * as yup from 'yup';
+import v from '@/plugins/validate';
+// import { defineRule, useField, useForm, configure } from 'vee-validate';
+// import { required, email } from '@vee-validate/rules';
+// import { localize } from '@vee-validate/i18n';
+// import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json';
+// import * as yup from 'yup';
 
-defineRule('required', required);
-defineRule('email', email);
+// defineRule('required', required);
+// defineRule('email', email);
 
-configure({
-  generateMessage: localize('zh_CN', zh_CN),
-});
+// configure({
+//   generateMessage: localize('zh_CN', zh_CN),
+// });
 
-const { handleSubmit, errors } = useForm({
+const { handleSubmit, errors } = v.useForm({
   initialValues: {
     username: 'JerryChen@163.com',
     password: '',
   },
   validationSchema: {
-    username: yup.string().required('用户名不能为空').email('邮箱格式错误'),
-    password: yup.string().required('密码不能为空'),
+    username: v.yup.string().required('用户名不能为空').email(),
+    password: v.yup.string().required('密码不能为空'),
   },
 });
 
@@ -42,14 +43,14 @@ const onSubmit = handleSubmit((value) => {
   alert('提交成功');
 });
 
-const { value: usernameValue } = useField(
+const { value: usernameValue } = v.useField(
   'username',
   {},
   {
     label: '用户名',
   }
 );
-const { value: passwordValue } = useField(
+const { value: passwordValue } = v.useField(
   'password',
   {},
   {
