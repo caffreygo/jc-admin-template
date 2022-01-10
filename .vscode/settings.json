@@ -31,6 +31,7 @@
   },
   "scss.validate": false,
   "css.validate": false,
+  "css.lint.unknownAtRules": "ignore",
   "path-intellisense.mappings": {
     "@": "${workspaceRoot}/src",
     "#": "${workspaceRoot}/types"
