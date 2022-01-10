@@ -17,6 +17,8 @@ import { defineRule, useField, useForm, configure } from 'vee-validate';
 import { required, email } from '@vee-validate/rules';
 import { localize } from '@vee-validate/i18n';
 import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json';
+import * as yup from 'yup';
+
 defineRule('required', required);
 defineRule('email', email);
 
@@ -30,13 +32,8 @@ const { handleSubmit, errors } = useForm({
     password: '',
   },
   validationSchema: {
-    username: {
-      required: true,
-      email: true,
-    },
-    password: {
-      required: true,
-    },
+    username: yup.string().required('用户名不能为空').email('邮箱格式错误'),
+    password: yup.string().required('密码不能为空'),
   },
 });
 
