@@ -10,6 +10,7 @@ loadLocaleFromURL(
 
 veeValidate.configure({
   generateMessage: localize('zh_CN'),
+  // validateOnInput: true,
 });
 
 Object.keys(rules).forEach((key) => {

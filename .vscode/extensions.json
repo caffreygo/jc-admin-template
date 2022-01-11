@@ -4,6 +4,7 @@
     "bradlc.vscode-tailwindcss",
     "ecmel.vscode-html-css",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "csstools.postcss"
   ]
 }
