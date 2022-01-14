@@ -19,6 +19,7 @@
               name="account"
               class="jc-input"
               label="账号"
+              value="caffreygo@163.com"
               placeholder="请输入邮箱或者手机号"
             />
             <p v-if="errors.account" class="jc-error">请输入邮箱或者手机号</p>
@@ -58,6 +59,7 @@
 
 <script setup lang="ts">
 import v from '@/plugins/validate';
+import userAPI from '@/api/userApi';
 
 const { Form, Field, ErrorMessage } = v;
 
@@ -72,8 +74,11 @@ const schema = {
   password: { required: true, min: 3 },
 };
 
-const onSubmit = (value: any) => {
-  console.log(value);
+const onSubmit = async (value: any) => {
+  const {
+    data: { token },
+  } = await userAPI.login();
+  localStorage.setItem('token', token);
 };
 </script>
 

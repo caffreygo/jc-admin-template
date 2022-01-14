@@ -5,7 +5,7 @@
 <script setup lang="ts">
 // import { onMounted } from 'vue';
 // import userApi from './api/userApi';
-import { env } from '@/utils/helper';
+import { env } from '@/utils';
 
 console.log(env);
 // onMounted(async () => {

@@ -19,6 +19,7 @@ interface LoginInterface {
 function login() {
   return http.request<LoginInterface>({
     url: 'login',
+    method: 'post',
   });
 }
 
