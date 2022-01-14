@@ -9,8 +9,7 @@
       :validate-on-input="true"
     >
       <input v-model="account" v-bind="field" />
-      <hr />
-      <p>{{ errorMessage }}</p>
+      <p class="text-white text-sm font-mono">{{ errorMessage }}</p>
     </Field>
     <button>提交表单</button>
     <!-- <input type="text" /> -->
@@ -45,13 +44,13 @@ const onSubmit = (value: any) => {
 </script>
 
 <style lang="scss" scoped>
-div {
-  @apply flex w-screen h-screen justify-center items-center bg-gray-800;
+form {
+  @apply flex flex-col w-screen h-screen justify-center items-center bg-gray-800;
   input {
     @apply border p-2 rounded-md border-violet-500 outline-none;
   }
   button {
-    @apply border bg-gray-600 px-4 py-2 rounded-md text-white mt-2;
+    @apply border bg-gray-600 px-4 py-2 rounded-md text-white mt-4;
   }
 }
 </style>

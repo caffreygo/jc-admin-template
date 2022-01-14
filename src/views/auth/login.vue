@@ -35,7 +35,7 @@
             <!-- <jc-input v-model="form.account" placeholder="请输入手机号或邮箱" />
           <jc-input class="mt-4" placeholder="请输入登录密码" /> -->
           </div>
-          <jc-button class="mt-5" />
+          <jc-button class="mt-5 w-full" />
           <div class="flex justify-center mt-3">
             <i
               class="fab fa-weixin bg-green-600 text-white rounded-full p-1 cursor-pointer"
@@ -62,6 +62,7 @@
 import v from '@/plugins/validate';
 import userAPI from '@/api/userApi';
 import { store } from '@/utils';
+import { useRouter } from 'vue-router';
 
 const { Form, Field, ErrorMessage } = v;
 
@@ -71,6 +72,7 @@ const { Form, Field, ErrorMessage } = v;
 //   password: v.yup.string().required().min(3).label('密码'),
 // });
 
+const router = useRouter();
 const schema = {
   account: { required: true, regex: /.+@.+|\d{11}/i },
   password: { required: true, min: 3 },
@@ -82,8 +84,20 @@ const onSubmit = async (value: any) => {
   } = await userAPI.login();
   store.set('token', {
     token,
-    expire: 100,
+    expire: 60,
   });
+  router.push({ name: 'home' });
+};
+</script>
+
+<script lang="ts">
+export default {
+  route: {
+    name: 'login',
+    meta: {
+      guest: true,
+    },
+  },
 };
 </script>
 
