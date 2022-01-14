@@ -28,6 +28,7 @@
               name="password"
               class="jc-input mt-3"
               label="密码"
+              value="admin888"
               type="password"
             />
             <ErrorMessage name="password" as="p" class="jc-error" />
@@ -60,6 +61,7 @@
 <script setup lang="ts">
 import v from '@/plugins/validate';
 import userAPI from '@/api/userApi';
+import { store } from '@/utils';
 
 const { Form, Field, ErrorMessage } = v;
 
@@ -78,7 +80,10 @@ const onSubmit = async (value: any) => {
   const {
     data: { token },
   } = await userAPI.login();
-  localStorage.setItem('token', token);
+  store.set('token', {
+    token,
+    expire: 100,
+  });
 };
 </script>
 
