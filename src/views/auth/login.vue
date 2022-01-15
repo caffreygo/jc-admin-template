@@ -84,7 +84,7 @@ const onSubmit = async (value: any) => {
   } = await userAPI.login();
   store.set('token', {
     token,
-    expire: 60,
+    expire: 10000,
   });
   router.push({ name: 'home' });
 };
