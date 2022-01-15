@@ -7,7 +7,7 @@
       class="w-52 h-52 object-cover rounded-full border-8 border-white mb-4"
     />
     <div>
-      <router-link :to="{ name: 'admin.jc' }" class="jc-button"
+      <router-link :to="{ name: 'admin.home' }" class="jc-button"
         >后台管理</router-link
       >
       <router-link :to="{ name: 'login' }" class="jc-button jc-danger ml-3"

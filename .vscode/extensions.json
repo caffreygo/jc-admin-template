@@ -5,6 +5,7 @@
     "ecmel.vscode-html-css",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "csstools.postcss"
+    "csstools.postcss",
+    "tomasvergara.vscode-fontawesome-gallery"
   ]
 }
