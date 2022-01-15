@@ -1,11 +1,11 @@
+<script setup lang="ts">
+import MenuComponent from './admin/menu.vue';
+</script>
+
 <template>
   <div class="admin h-screen w-screen flex">
-    <div class="menu w-[200px] bg-gray-800">
-      <div class="logo">
-        <i class="fas fa-robot text-white"></i>
-      </div>
-    </div>
-    <div class="menu bg-gray-200 flex-1">
+    <menu-component />
+    <div class="content bg-gray-200 flex-1">
       <router-view />
     </div>
   </div>
@@ -21,4 +21,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss"></style>
