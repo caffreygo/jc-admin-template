@@ -6,6 +6,8 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "csstools.postcss",
-    "tomasvergara.vscode-fontawesome-gallery"
+    "tomasvergara.vscode-fontawesome-gallery",
+    "jingwang37.element-plus-snippets",
+    "oibit.element-ui-helper"
   ]
 }

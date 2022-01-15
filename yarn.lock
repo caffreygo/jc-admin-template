@@ -43,6 +43,16 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     "to-fast-properties" "^2.0.0"
 
+"@ctrl/tinycolor@^3.4.0":
+  "integrity" "sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ=="
+  "resolved" "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz"
+  "version" "3.4.0"
+
+"@element-plus/icons-vue@^0.2.4":
+  "integrity" "sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w=="
+  "resolved" "https://registry.npmjs.org/@element-plus/icons-vue/-/icons-vue-0.2.4.tgz"
+  "version" "0.2.4"
+
 "@emmetio/abbreviation@^2.2.2":
   "integrity" "sha1-dGdi/Z56jC6mBPWAxi48/iUOaYk="
   "resolved" "https://registry.nlark.com/@emmetio/abbreviation/download/@emmetio/abbreviation-2.2.2.tgz"
@@ -111,6 +121,11 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
+
+"@popperjs/core@^2.10.2":
+  "integrity" "sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA=="
+  "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.2.tgz"
+  "version" "2.11.2"
 
 "@rollup/plugin-node-resolve@^13.0.4":
   "integrity" "sha512-6QKtRevXLrmEig9UiMYt2fSvee9TyltGRfw+qSs6xjUnxwjOzTOqy+/Lpxsgjb8mJn1EQNbCDAvt89O4uzL5kw=="
@@ -409,6 +424,21 @@
   "resolved" "https://registry.npmmirror.com/@vue/shared/download/@vue/shared-3.2.26.tgz"
   "version" "3.2.26"
 
+"@vueuse/core@^7.3.0":
+  "integrity" "sha512-D9j5ymHFMFRXQqCp0yZJkf/bvBGiz0MrKUa364p+L8dMyd5zyq2K1JmHyvoBd4xbTFRfmQ1h878u6YE5LCkDVQ=="
+  "resolved" "https://registry.npmjs.org/@vueuse/core/-/core-7.5.3.tgz"
+  "version" "7.5.3"
+  dependencies:
+    "@vueuse/shared" "7.5.3"
+    "vue-demi" "*"
+
+"@vueuse/shared@7.5.3":
+  "integrity" "sha512-BJ71cxHN5VByW1S58Gl85NFJaQu93F7Vs7K/MuAKsIIuHm9PBbkR5Vxkg9ko9cBdiKVt+FNoo13BhdbA+Vwycg=="
+  "resolved" "https://registry.npmjs.org/@vueuse/shared/-/shared-7.5.3.tgz"
+  "version" "7.5.3"
+  dependencies:
+    "vue-demi" "*"
+
 "acorn-jsx@^5.3.1":
   "integrity" "sha1-ftW7VZCLOy8bxVxq8WU7rafweTc="
   "resolved" "https://registry.nlark.com/acorn-jsx/download/acorn-jsx-5.3.2.tgz"
@@ -534,6 +564,11 @@
   "integrity" "sha1-SDFDxWeu7UeFdZwIZXhtx319LjE="
   "resolved" "https://registry.nlark.com/astral-regex/download/astral-regex-2.0.0.tgz"
   "version" "2.0.0"
+
+"async-validator@^4.0.7":
+  "integrity" "sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ=="
+  "resolved" "https://registry.npmjs.org/async-validator/-/async-validator-4.0.7.tgz"
+  "version" "4.0.7"
 
 "autoprefixer@^10.0.2", "autoprefixer@^10.4.0":
   "integrity" "sha512-7FdJ1ONtwzV1G43GDD0kpVMn/qbiNqyOPMFTX5nRffI+7vgWoFEc6DcXOxHJxrWNDXrZh18eDsZjvZGUljSRGA=="
@@ -782,6 +817,11 @@
   "resolved" "https://registry.npmmirror.com/csstype/download/csstype-2.6.19.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcsstype%2Fdownload%2Fcsstype-2.6.19.tgz"
   "version" "2.6.19"
 
+"dayjs@^1.10.7":
+  "integrity" "sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig=="
+  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.10.7.tgz"
+  "version" "1.10.7"
+
 "debug@^4.1.1", "debug@^4.3.2", "debug@^4.3.3":
   "integrity" "sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q=="
   "resolved" "https://registry.npmmirror.com/debug/download/debug-4.3.3.tgz"
@@ -895,6 +935,21 @@
   "integrity" "sha512-Gzbf0wUtKfyPaqf0Plz+Ctinf9eQIzxEqBHwSvbGfeOm9GMNdLxyu1dNiCUfM+x6r4BE0xUJNh3Nmg9gfAtTmg=="
   "resolved" "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.4.28.tgz"
   "version" "1.4.28"
+
+"element-plus@^1.3.0-beta.5":
+  "integrity" "sha512-su0sHN4ZkR5ISyP1McyiqY5wqrgZgKq0El0lSohjvjEWR3ODlgdmMfQolV0ZqTXKlO2mS16hO7nTFwX9PvZNTQ=="
+  "resolved" "https://registry.npmjs.org/element-plus/-/element-plus-1.3.0-beta.5.tgz"
+  "version" "1.3.0-beta.5"
+  dependencies:
+    "@ctrl/tinycolor" "^3.4.0"
+    "@element-plus/icons-vue" "^0.2.4"
+    "@popperjs/core" "^2.10.2"
+    "@vueuse/core" "^7.3.0"
+    "async-validator" "^4.0.7"
+    "dayjs" "^1.10.7"
+    "lodash" "^4.17.21"
+    "memoize-one" "^6.0.0"
+    "normalize-wheel-es" "^1.1.1"
 
 "emmet@^2.3.0":
   "integrity" "sha512-LcWfTamJnXIdMfLvJEC5Ld3hY5/KHXgv1L1bp6I7eEvB0ZhacHZ1kX0BYovJ8FroEsreLcq7n7kZhRMsf6jkXQ=="
@@ -1818,6 +1873,11 @@
   dependencies:
     "sourcemap-codec" "^1.4.4"
 
+"memoize-one@^6.0.0":
+  "integrity" "sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw=="
+  "resolved" "https://registry.npmjs.org/memoize-one/-/memoize-one-6.0.0.tgz"
+  "version" "6.0.0"
+
 "merge-stream@^2.0.0":
   "integrity" "sha1-UoI2KaFN0AyXcPtq1H3GMQ8sH2A="
   "resolved" "https://registry.nlark.com/merge-stream/download/merge-stream-2.0.0.tgz?cache=0&sync_timestamp=1622025345923&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmerge-stream%2Fdownload%2Fmerge-stream-2.0.0.tgz"
@@ -1899,6 +1959,11 @@
   "integrity" "sha1-LRDAa9/TEuqXd2laTShDlFa3WUI="
   "resolved" "https://registry.nlark.com/normalize-range/download/normalize-range-0.1.2.tgz"
   "version" "0.1.2"
+
+"normalize-wheel-es@^1.1.1":
+  "integrity" "sha512-157VNH4CngrcsvF8xOVOe22cwniIR3nxSltdctvQeHZj8JttEeOXffK28jucWfWBXs0QNetAumjc1GiInnwX4w=="
+  "resolved" "https://registry.npmjs.org/normalize-wheel-es/-/normalize-wheel-es-1.1.1.tgz"
+  "version" "1.1.1"
 
 "npm-run-path@^4.0.1":
   "integrity" "sha1-t+zR5e1T2o43pV4cImnguX7XSOo="
@@ -2838,6 +2903,11 @@
     "vscode-pug-languageservice" "0.28.10"
     "vscode-typescript-languageservice" "0.28.10"
 
+"vue-demi@*":
+  "integrity" "sha512-QL3ny+wX8c6Xm1/EZylbgzdoDolye+VpCXRhI2hug9dJTP3OUJ3lmiKN3CsVV3mOJKwFi0nsstbgob0vG7aoIw=="
+  "resolved" "https://registry.npmjs.org/vue-demi/-/vue-demi-0.12.1.tgz"
+  "version" "0.12.1"
+
 "vue-eslint-parser@^8.0.1":
   "integrity" "sha1-JeCLIKQUVRUx8+GfmZkC4ez0XxM="
   "resolved" "https://registry.npmmirror.com/vue-eslint-parser/download/vue-eslint-parser-8.0.1.tgz"
@@ -2866,7 +2936,7 @@
     "@volar/shared" "0.28.10"
     "vscode-vue-languageservice" "0.28.10"
 
-"vue@^3.0.0", "vue@^3.2.23", "vue@3.2.26":
+"vue@^2.6.0 || ^3.2.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.23", "vue@3.2.26":
   "integrity" "sha512-KD4lULmskL5cCsEkfhERVRIOEDrfEL9CwAsLYpzptOGjaGFNWo3BQ9g8MAb7RaIO71rmVOziZ/uEN/rHwcUIhg=="
   "resolved" "https://registry.npmmirror.com/vue/download/vue-3.2.26.tgz"
   "version" "3.2.26"
