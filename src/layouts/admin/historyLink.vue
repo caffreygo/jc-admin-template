@@ -1,12 +1,14 @@
 <template>
-  <div class="m-5 grid grid-flow-col gap-2 justify-start">
-    <a
-      v-for="(link, index) of links"
-      :key="index"
-      href=""
-      class="bg-white rounded-md py-2 px-3"
-      >{{ link.title }} <i class="fas fa-times ml-1"></i
-    ></a>
+  <div class="m-4 hidden md:block">
+    <div class="grid grid-flow-col gap-2 justify-start">
+      <a
+        v-for="(link, index) of links"
+        :key="index"
+        href=""
+        class="bg-white rounded-md py-2 px-3"
+        >{{ link.title }} <i class="fas fa-times ml-1"></i
+      ></a>
+    </div>
   </div>
 </template>
 

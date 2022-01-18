@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-flow-col gap-3">
+  <div class="grid md:grid-flow-col gap-3 bg-gray-100">
     <el-card
       v-for="(card, index) of cards"
       :key="index"
@@ -22,9 +22,9 @@
       </section>
     </el-card>
   </div>
-  <div class="p-3 mt-5 grid grid-flow-col gap-3 bg-white">
-    <div id="chart1" style="height: 400px"></div>
-    <div id="chart2" style="height: 400px"></div>
+  <div class="bg-white p-3 mt-5 grid md:grid-flow-col gap-3">
+    <div id="chart2" class="h-[400px] w-full md:w-[600px]"></div>
+    <div id="chart1" class="w-full h-[450px] md:w-[600px]"></div>
   </div>
 </template>
 
