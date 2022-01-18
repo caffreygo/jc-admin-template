@@ -9,7 +9,7 @@
       <template #header>
         <div class="flex justify-between items-center">
           {{ card.title }}
-          <el-tag type="danger" size="mini" effect="dark">月</el-tag>
+          <el-tag type="danger" size="small" effect="dark">月</el-tag>
         </div>
       </template>
       <section class="flex mt-3 justify-between items-center">
@@ -22,10 +22,22 @@
       </section>
     </el-card>
   </div>
+  <div class="p-3 mt-5 grid grid-flow-col gap-3 bg-white">
+    <div id="chart1" style="height: 400px"></div>
+    <div id="chart2" style="height: 400px"></div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
+import echarts, { echart1, echart2 } from './echart';
+
+nextTick(() => {
+  const chart1 = echarts.init(document.getElementById('chart1'));
+  const chart2 = echarts.init(document.getElementById('chart2'));
+  chart1.setOption(echart1);
+  chart2.setOption(echart2);
+});
 
 interface ICard {
   title: string;
