@@ -13,7 +13,10 @@
             <span>{{ menu.title }}</span>
           </section>
           <section>
-            <i class="fas fa-angle-down"></i>
+            <i
+              class="fas fa-angle-down duration-300"
+              :class="{ 'rotate-180': menu.active }"
+            ></i>
           </section>
         </dt>
         <dd
@@ -85,7 +88,7 @@ const handle = (pmenu: IMenuItem, cmenu?: IMenuItem) => {
         }
       }
       dd {
-        @apply py-2 pl-4 my-2 rounded-md cursor-pointer hover:bg-violet-500 duration-300;
+        @apply py-2 pl-4 my-2 rounded-md cursor-pointer hover:bg-violet-500 duration-300 bg-gray-700;
         &.active {
           @apply bg-violet-700 text-white;
         }

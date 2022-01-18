@@ -1,5 +1,5 @@
 <template>
-  <div class="m-3 grid grid-flow-col gap-2 justify-start">
+  <div class="m-5 grid grid-flow-col gap-2 justify-start">
     <a
       v-for="(link, index) of links"
       :key="index"
