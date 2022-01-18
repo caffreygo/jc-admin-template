@@ -1,21 +1,75 @@
 <template>
   <div class="grid grid-flow-col gap-3">
     <el-card
-      v-for="n of 4"
-      :key="n"
-      shadow="never"
+      v-for="(card, index) of cards"
+      :key="index"
+      shadow="hover"
       :body-style="{ padding: '20px' }"
     >
       <template #header>
-        <div>
-          <span>Admin</span>
+        <div class="flex justify-between items-center">
+          {{ card.title }}
+          <el-tag type="danger" size="mini" effect="dark">月</el-tag>
         </div>
       </template>
-      hello world
+      <section class="flex mt-3 justify-between items-center">
+        <span class="text-3xl">{{ card.price }}</span>
+        <i :class="[card.icon, card.iconColor]" class="text-5xl"> </i>
+      </section>
+      <section class="text-base mt-6 flex justify-between">
+        {{ card.totalTitle }}
+        <span>{{ card.total }}</span>
+      </section>
     </el-card>
   </div>
 </template>
 
-<script lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+interface ICard {
+  title: string;
+  price: number;
+  icon: string;
+  iconColor: string;
+  total: number;
+  totalTitle: string;
+}
+
+const cards = ref<ICard[]>([
+  {
+    title: '总人数',
+    price: 23131,
+    icon: 'fas fa-apple-alt',
+    iconColor: 'text-violet-500',
+    total: 745323,
+    totalTitle: '总人数',
+  },
+  {
+    title: '销售额',
+    price: 12331,
+    icon: 'fab fa-angellist',
+    iconColor: 'text-green-600',
+    total: 31223,
+    totalTitle: '总销售额',
+  },
+  {
+    title: '订单数',
+    price: 54431,
+    icon: 'fab fa-angrycreative',
+    iconColor: 'text-red-500',
+    total: 765323,
+    totalTitle: '总订单数',
+  },
+  {
+    title: '评论数',
+    price: 2131,
+    icon: 'fab fa-app-store',
+    iconColor: 'text-gray-500',
+    total: 93523,
+    totalTitle: '总评论数',
+  },
+]);
+</script>
 
 <style scoped></style>
