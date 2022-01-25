@@ -34,6 +34,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useStore } from '@/store/router';
+
+const store = useStore();
+
 interface IMenuItem {
   title: string;
   icon?: string;
