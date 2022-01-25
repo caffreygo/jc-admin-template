@@ -26,12 +26,4 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  route: {
-    name: 'home',
-  },
-};
-</script>
-
-<style scoped></style>
+<script lang="ts" setup></script>
