@@ -6,26 +6,26 @@
     </div>
     <!-- menu -->
     <div class="left-container">
-      <dl v-for="(menu, index) of menus" :key="index">
-        <dt @click="handle(menu)">
+      <dl v-for="(route, index) of routerStore.routes" :key="index">
+        <dt @click="handleClick(route)">
           <section class="flex items-center">
-            <i :class="menu.icon"></i>
-            <span>{{ menu.title }}</span>
+            <i :class="route.meta.icon"></i>
+            <span>{{ route.meta.title }}</span>
           </section>
           <section>
             <i
               class="fas fa-angle-down duration-300"
-              :class="{ 'rotate-180': menu.active }"
+              :class="{ 'rotate-180': route.meta.isClick }"
             ></i>
           </section>
         </dt>
         <dd
-          v-for="(cmenu, key) of menu.children"
-          v-show="menu.active"
+          v-for="(childRoute, key) of route.children"
+          v-show="route.meta.isClick"
           :key="key"
-          :class="{ active: cmenu.active }"
+          :class="{ active: childRoute.meta?.isClick }"
         >
-          {{ cmenu.title }}
+          {{ childRoute.meta?.title }}
         </dd>
       </dl>
     </div>
@@ -35,45 +35,53 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useStore } from '@/store/router';
+import { RouteParamsRaw, RouteRecordNormalized } from 'vue-router';
 
-const store = useStore();
+const routerStore = useStore();
 
-interface IMenuItem {
-  title: string;
-  icon?: string;
-  active?: boolean;
-}
-interface IMenu extends IMenuItem {
-  children?: IMenuItem[];
-}
+// interface IMenuItem {
+//   title: string;
+//   icon?: string;
+//   active?: boolean;
+// }
+// interface IMenu extends IMenuItem {
+//   children?: IMenuItem[];
+// }
 
-const menus = ref<IMenu[]>([
-  {
-    title: '错误页面',
-    icon: 'fab fa-algolia',
-    active: true,
-    children: [
-      { title: '404页面', active: true },
-      { title: '403页面' },
-      { title: '500页面' },
-    ],
-  },
-  {
-    title: '编辑器',
-    icon: 'fab fa-app-store-ios',
-    children: [{ title: 'Markdown编辑器' }, { title: '富文本编辑器' }],
-  },
-]);
+// const menus = ref<IMenu[]>([
+//   {
+//     title: '错误页面',
+//     icon: 'fab fa-algolia',
+//     active: true,
+//     children: [
+//       { title: '404页面', active: true },
+//       { title: '403页面' },
+//       { title: '500页面' },
+//     ],
+//   },
+//   {
+//     title: '编辑器',
+//     icon: 'fab fa-app-store-ios',
+//     children: [{ title: 'Markdown编辑器' }, { title: '富文本编辑器' }],
+//   },
+// ]);
 
 const resetMenus = () => {
-  menus.value.forEach((pmenu) => {
-    pmenu.active = false;
-    pmenu.children?.forEach((m) => (m.active = false));
+  routerStore.routes.forEach((pRoute) => {
+    pRoute.meta.isClick = false;
+    pRoute.children?.forEach((route) => {
+      if (route.meta) {
+        route.meta.isClick = false;
+      }
+    });
   });
 };
-const handle = (pmenu: IMenuItem, cmenu?: IMenuItem) => {
+const handleClick = (
+  pRoute: RouteRecordNormalized,
+  childRoute?: RouteParamsRaw
+) => {
   resetMenus();
-  pmenu.active = true;
+  pRoute.meta.isClick = true;
 };
 </script>
 

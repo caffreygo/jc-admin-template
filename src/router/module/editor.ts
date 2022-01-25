@@ -15,6 +15,8 @@ export default {
       path: 'base',
       meta: {
         title: '基础编辑器',
+        icon: '',
+        isClick: false,
         show: true,
       },
       component: () => import('@/views/editor/base.vue'),
