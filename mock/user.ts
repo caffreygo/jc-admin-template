@@ -3,7 +3,7 @@ import { MockMethod } from 'vite-plugin-mock';
 
 export default [
   {
-    url: '/api/info',
+    url: '/api/user/info',
     method: 'get',
     response: () => {
       return {
@@ -13,7 +13,7 @@ export default [
         data: {
           name: 'Jerry Chen',
           age: 18,
-          avatar: 'avatar.jpg',
+          avatar: '/images/avatar.jpeg',
         },
       };
     },

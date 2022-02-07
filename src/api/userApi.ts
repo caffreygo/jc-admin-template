@@ -8,7 +8,7 @@ export interface User {
 
 function info() {
   return http.request<User>({
-    url: 'info',
+    url: 'user/info',
   });
 }
 

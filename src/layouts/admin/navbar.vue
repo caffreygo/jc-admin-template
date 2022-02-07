@@ -7,10 +7,10 @@
 
     <div class="flex justify-center items-center relative group cursor-pointer">
       <img
-        src="/images/avatar.jpeg"
+        :src="userStore.info?.avatar"
         class="w-8 h-8 rounded-full object-cover"
       />
-      <span class="ml-1 text-sm text-gray-600">Jerry Chen</span>
+      <span class="ml-1 text-sm text-gray-600">{{ userStore.info?.name }}</span>
       <section
         class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap rounded-md hidden"
       >
@@ -30,3 +30,9 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import user from '@/store/user';
+
+const userStore = user();
+</script>

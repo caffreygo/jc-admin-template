@@ -3,7 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 export default {
   name: 'editor',
   path: '/editor',
-  component: () => import('@/layouts/editor.vue'),
+  component: () => import('@/layouts/admin.vue'),
   meta: {
     title: '编辑器',
     icon: 'fab fa-app-store-ios',
@@ -20,8 +20,8 @@ export default {
       component: () => import('@/views/editor/base.vue'),
     },
     {
-      name: 'base',
-      path: 'base',
+      name: 'markdown',
+      path: 'markdown',
       meta: {
         title: 'Markdown编辑器',
         show: true,

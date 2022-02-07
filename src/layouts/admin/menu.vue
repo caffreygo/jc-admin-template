@@ -35,9 +35,10 @@
 
 <script setup lang="ts">
 import { useStore } from '@/store/router';
-import { RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
+import { RouteRecordNormalized, RouteRecordRaw, useRouter } from 'vue-router';
 
 const routerStore = useStore();
+const routeService = useRouter();
 
 const resetMenus = () => {
   routerStore.routes.forEach((pRoute) => {
@@ -49,6 +50,7 @@ const resetMenus = () => {
     });
   });
 };
+
 const handleClick = (
   pRoute: RouteRecordNormalized,
   cRoute?: RouteRecordRaw
@@ -58,6 +60,7 @@ const handleClick = (
   if (cRoute && cRoute.meta) {
     console.log(cRoute.meta);
     cRoute.meta.isClick = true;
+    routeService.push(cRoute);
   }
 };
 </script>

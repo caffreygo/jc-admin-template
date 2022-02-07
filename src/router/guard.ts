@@ -1,9 +1,6 @@
+import user from '@/store/user';
 import { store } from '@/utils';
-import {
-  RouteLocationNormalized,
-  Router,
-  RouteRecordNormalized,
-} from 'vue-router';
+import { RouteLocationNormalized, Router } from 'vue-router';
 
 class Guard {
   constructor(private router: Router) {}
@@ -12,7 +9,7 @@ class Guard {
     this.router.beforeEach(this.beforeEach.bind(this));
   }
 
-  private beforeEach(
+  private async beforeEach(
     to: RouteLocationNormalized,
     from: RouteLocationNormalized
   ) {
@@ -20,6 +17,11 @@ class Guard {
     if (this.isGuest(to) === false) {
       return from;
     }
+    await this.getUserInfo();
+  }
+
+  private getUserInfo() {
+    if (this.token()) return user().getUserInfo();
   }
 
   private token(): string | null {

@@ -1,11 +1,11 @@
 <template>
-  <div class="m-4 hidden md:block">
+  <div class="hidden md:block p-3 border-t border-b bg-gray-50 shadow-sm">
     <div class="grid grid-flow-col gap-2 justify-start">
       <a
         v-for="(link, index) of links"
         :key="index"
         href=""
-        class="bg-white rounded-md py-2 px-3"
+        class="hover:bg-violet-600 hover:text-white bg-white rounded-sm duration-300 border py-2 px-3 text-sm text-gray-600"
         >{{ link.title }} <i class="fas fa-times ml-1"></i
       ></a>
     </div>
