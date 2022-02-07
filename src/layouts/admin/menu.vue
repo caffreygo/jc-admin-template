@@ -24,6 +24,7 @@
           v-show="route.meta.isClick"
           :key="key"
           :class="{ active: childRoute.meta?.isClick }"
+          @click="handleClick(route, childRoute)"
         >
           {{ childRoute.meta?.title }}
         </dd>
@@ -33,38 +34,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useStore } from '@/store/router';
-import { RouteParamsRaw, RouteRecordNormalized } from 'vue-router';
+import { RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
 
 const routerStore = useStore();
-
-// interface IMenuItem {
-//   title: string;
-//   icon?: string;
-//   active?: boolean;
-// }
-// interface IMenu extends IMenuItem {
-//   children?: IMenuItem[];
-// }
-
-// const menus = ref<IMenu[]>([
-//   {
-//     title: '错误页面',
-//     icon: 'fab fa-algolia',
-//     active: true,
-//     children: [
-//       { title: '404页面', active: true },
-//       { title: '403页面' },
-//       { title: '500页面' },
-//     ],
-//   },
-//   {
-//     title: '编辑器',
-//     icon: 'fab fa-app-store-ios',
-//     children: [{ title: 'Markdown编辑器' }, { title: '富文本编辑器' }],
-//   },
-// ]);
 
 const resetMenus = () => {
   routerStore.routes.forEach((pRoute) => {
@@ -78,10 +51,14 @@ const resetMenus = () => {
 };
 const handleClick = (
   pRoute: RouteRecordNormalized,
-  childRoute?: RouteParamsRaw
+  cRoute?: RouteRecordRaw
 ) => {
   resetMenus();
   pRoute.meta.isClick = true;
+  if (cRoute && cRoute.meta) {
+    console.log(cRoute.meta);
+    cRoute.meta.isClick = true;
+  }
 };
 </script>
 

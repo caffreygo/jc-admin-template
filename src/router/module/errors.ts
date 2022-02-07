@@ -16,7 +16,6 @@ export default {
       path: '404',
       meta: {
         title: '404页面',
-        isClick: false,
         show: true,
       },
       component: () => import('@/views/errors/404.vue'),
@@ -26,7 +25,6 @@ export default {
       path: '403',
       meta: {
         title: '403页面',
-        isClick: false,
         show: true,
       },
       component: () => import('@/views/errors/403.vue'),

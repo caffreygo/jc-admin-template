@@ -15,6 +15,7 @@ function getRoutes() {
     .map((route) => {
       route.children = route.children.filter((route) => route.meta?.show);
       return route;
-    });
+    })
+    .filter((route) => route.children.length);
   return routes;
 }

@@ -1,25 +1,37 @@
 import { store } from '@/utils';
-import { RouteLocationNormalized, Router } from 'vue-router';
+import {
+  RouteLocationNormalized,
+  Router,
+  RouteRecordNormalized,
+} from 'vue-router';
 
 class Guard {
   constructor(private router: Router) {}
 
   public run() {
-    // handling login and verification
-    this.router.beforeEach((to, from) => {
-      const token = store.get('token')?.token;
-      if (this.isLogin(to, token) === false) return { name: 'login' };
-
-      if (this.isGuest(to, token) === false) return from;
-    });
+    this.router.beforeEach(this.beforeEach.bind(this));
   }
 
-  private isGuest(route: RouteLocationNormalized, token: any) {
-    return Boolean(!route.meta.guest || (route.meta.guest && !token));
+  private beforeEach(
+    to: RouteLocationNormalized,
+    from: RouteLocationNormalized
+  ) {
+    if (this.isLogin(to) === false) return { name: 'login' };
+    if (this.isGuest(to) === false) {
+      return from;
+    }
   }
 
-  private isLogin(route: RouteLocationNormalized, token: any) {
-    return Boolean(!route.meta.auth || (route.meta.auth && token));
+  private token(): string | null {
+    return store.get('token')?.token;
+  }
+
+  private isGuest(route: RouteLocationNormalized) {
+    return Boolean(!route.meta.guest || (route.meta.guest && !this.token()));
+  }
+
+  private isLogin(route: RouteLocationNormalized) {
+    return Boolean(!route.meta.auth || (route.meta.auth && this.token()));
   }
 }
 
