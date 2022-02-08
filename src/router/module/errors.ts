@@ -7,8 +7,8 @@ export default {
   meta: {
     title: '错误页面',
     icon: 'fab fa-algolia',
-    isClick: true,
     show: true,
+    auth: true,
   },
   children: [
     {

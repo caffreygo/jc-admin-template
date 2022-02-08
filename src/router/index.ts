@@ -1,11 +1,11 @@
 import type { App } from 'vue';
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import routes from './routes';
 import autoloadRoutes from './autoload';
 import guard from './guard';
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [...routes, ...autoloadRoutes],
 });
 

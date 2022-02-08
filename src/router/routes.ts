@@ -14,6 +14,11 @@ const routes = [
       guest: true,
     },
   },
+  {
+    path: '/:any(.*)',
+    name: 'notFound',
+    component: () => import('@/views/errors/404.vue'),
+  },
 ] as RouteRecordRaw[];
 
 export default routes;

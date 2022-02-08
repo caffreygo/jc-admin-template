@@ -8,6 +8,7 @@ export default {
     title: '编辑器',
     icon: 'fab fa-app-store-ios',
     show: true,
+    auth: true,
   },
   children: [
     {
