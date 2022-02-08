@@ -5,9 +5,9 @@
 <script setup lang="ts">
 // import { onMounted } from 'vue';
 // import userApi from './api/userApi';
-import { env } from '@/utils';
+// import utils from '@/utils';
 
-console.log(env);
+// console.log(utils.env);
 // onMounted(async () => {
 //   const response = await userApi.login();
 //   console.log(response.data.token);

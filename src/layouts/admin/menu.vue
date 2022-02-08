@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store/router';
+import { useStore } from '@/store/routerStore';
 import { RouteRecordNormalized, RouteRecordRaw, useRouter } from 'vue-router';
 
 const routerStore = useStore();

@@ -16,10 +16,16 @@ interface LoginInterface {
   token: string;
 }
 
-function login() {
+export interface ILoginData {
+  account: string;
+  password: string;
+}
+
+function login(data: ILoginData) {
   return http.request<LoginInterface>({
     url: 'login',
     method: 'post',
+    data,
   });
 }
 
