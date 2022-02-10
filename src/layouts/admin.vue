@@ -14,7 +14,13 @@ menuStore().init();
       <navbar />
       <history-link />
       <div class="m-4">
-        <router-view />
+        <router-view v-slot="{ Component }">
+          <transition
+            enter-active-class="animate__animated animate__bounceInRight"
+          >
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </div>
     </div>
   </div>
