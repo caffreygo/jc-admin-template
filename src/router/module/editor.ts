@@ -5,18 +5,20 @@ export default {
   path: '/editor',
   component: () => import('@/layouts/admin.vue'),
   meta: {
-    title: '编辑器',
-    icon: 'fab fa-app-store-ios',
-    show: true,
     auth: true,
+    menu: {
+      title: '编辑器',
+      icon: 'fab fa-app-store-ios',
+    },
   },
   children: [
     {
       name: 'base',
       path: 'base',
       meta: {
-        title: '基础编辑器',
-        show: true,
+        menu: {
+          title: '基础编辑器',
+        },
       },
       component: () => import('@/views/editor/base.vue'),
     },
@@ -24,8 +26,9 @@ export default {
       name: 'markdown',
       path: 'markdown',
       meta: {
-        title: 'Markdown编辑器',
-        show: true,
+        menu: {
+          title: 'Markdown编辑器',
+        },
       },
       component: () => import('@/views/editor/markdown.vue'),
     },

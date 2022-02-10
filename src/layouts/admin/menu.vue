@@ -6,27 +6,27 @@
     </div>
     <!-- menu -->
     <div class="left-container">
-      <dl v-for="(route, index) of routerStore.routes" :key="index">
-        <dt @click="handleClick(route)">
+      <dl v-for="(menu, index) of menus" :key="index">
+        <dt @click="handleClick(menu)">
           <section class="flex items-center">
-            <i :class="route.meta.icon"></i>
-            <span>{{ route.meta.title }}</span>
+            <i :class="menu.icon"></i>
+            <span>{{ menu.title }}</span>
           </section>
           <section>
             <i
               class="fas fa-angle-down duration-300"
-              :class="{ 'rotate-180': route.meta.isClick }"
+              :class="{ 'rotate-180': menu.isClick }"
             ></i>
           </section>
         </dt>
         <dd
-          v-for="(childRoute, key) of route.children"
-          v-show="route.meta.isClick"
+          v-for="(cMenu, key) of menu.children"
+          v-show="menu.isClick"
           :key="key"
-          :class="{ active: childRoute.meta?.isClick }"
-          @click="handleClick(route, childRoute)"
+          :class="{ active: cMenu.isClick }"
+          @click="handleClick(menu, cMenu)"
         >
-          {{ childRoute.meta?.title }}
+          {{ cMenu.title }}
         </dd>
       </dl>
     </div>
@@ -34,33 +34,29 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store/routerStore';
-import { RouteRecordNormalized, RouteRecordRaw, useRouter } from 'vue-router';
+import { IMenu } from '#/menu';
+import menuStore from '@/store/menuStore';
+import router from '@/router';
 
-const routerStore = useStore();
-const routeService = useRouter();
+const menus = menuStore().menus;
 
 const resetMenus = () => {
-  routerStore.routes.forEach((pRoute) => {
-    pRoute.meta.isClick = false;
-    pRoute.children?.forEach((route) => {
-      if (route.meta) {
-        route.meta.isClick = false;
-      }
+  menus.forEach((pMenu) => {
+    pMenu.isClick = false;
+    pMenu.children?.forEach((cMenu) => {
+      cMenu.isClick = false;
     });
   });
 };
 
-const handleClick = (
-  pRoute: RouteRecordNormalized,
-  cRoute?: RouteRecordRaw
-) => {
+const handleClick = (pMenu: IMenu, cMenu?: IMenu) => {
   resetMenus();
-  pRoute.meta.isClick = true;
-  if (cRoute && cRoute.meta) {
-    console.log(cRoute.meta);
-    cRoute.meta.isClick = true;
-    routeService.push(cRoute);
+  pMenu.isClick = true;
+  if (cMenu) {
+    cMenu.isClick = true;
+    router.push({
+      name: cMenu.route,
+    });
   }
 };
 </script>

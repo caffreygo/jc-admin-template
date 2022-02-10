@@ -5,18 +5,20 @@ export default {
   path: '/error',
   component: () => import('@/layouts/admin.vue'),
   meta: {
-    title: '错误页面',
-    icon: 'fab fa-algolia',
-    show: true,
     auth: true,
+    menu: {
+      title: '错误页面',
+      icon: 'fab fa-algolia',
+    },
   },
   children: [
     {
       name: 'error.404',
       path: '404',
       meta: {
-        title: '404页面',
-        show: true,
+        menu: {
+          title: '404页面',
+        },
       },
       component: () => import('@/views/errors/404.vue'),
     },
@@ -24,8 +26,9 @@ export default {
       name: 'error.403',
       path: '403',
       meta: {
-        title: '403页面',
-        show: true,
+        menu: {
+          title: '403页面',
+        },
       },
       component: () => import('@/views/errors/403.vue'),
     },
