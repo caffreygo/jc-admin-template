@@ -29,12 +29,20 @@ class Guard {
     return utils.store.get(CacheEnum.TOKEN_NAME)?.token;
   }
 
+  // 游客
   private isGuest(route: RouteLocationNormalized) {
     return Boolean(!route.meta.guest || (route.meta.guest && !this.token()));
   }
 
+  // 登录用户访问
   private isLogin(route: RouteLocationNormalized) {
-    return Boolean(!route.meta.auth || (route.meta.auth && this.token()));
+    const state = Boolean(
+      !route.meta.auth || (route.meta.auth && this.token())
+    );
+    if (state === false) {
+      utils.store.set(CacheEnum.REDIRECT_ROUTE_NAME, route.name);
+    }
+    return state;
   }
 }
 
