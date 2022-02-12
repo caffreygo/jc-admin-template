@@ -1,4 +1,5 @@
 import { CacheEnum } from '@/enum/cacheEnum';
+import menuStore from '@/store/menuStore';
 import userStore from '@/store/userStore';
 import utils from '@/utils';
 import { RouteLocationNormalized, Router } from 'vue-router';

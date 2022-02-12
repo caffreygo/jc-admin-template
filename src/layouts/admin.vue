@@ -3,8 +3,15 @@ import MenuComponent from './admin/menu.vue';
 import Navbar from './admin/navbar.vue';
 import HistoryLink from './admin/historyLink.vue';
 import menuStore from '@/store/menuStore';
+import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 
-menuStore().init();
+const route = useRoute();
+const menu = menuStore();
+menu.init();
+
+onBeforeRouteUpdate(() => {
+  menu.addHistoryMenu(route);
+});
 </script>
 
 <template>
