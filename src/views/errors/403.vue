@@ -1,3 +1,3 @@
-<template>403</template>
+<template><div>403</div></template>
 
 <script setup lang="ts"></script>

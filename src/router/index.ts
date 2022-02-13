@@ -1,4 +1,4 @@
-import type { App } from 'vue';
+import { App } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from './routes';
 import autoloadRoutes from './autoload';
@@ -9,7 +9,7 @@ const router = createRouter({
   routes: [...routes, ...autoloadRoutes],
 });
 
-export function setupRouter(app: App<Element>) {
+export function setupRouter(app: App) {
   guard(router);
   app.use(router);
 }
