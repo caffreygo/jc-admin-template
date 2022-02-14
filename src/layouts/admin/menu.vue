@@ -1,40 +1,35 @@
 <script setup lang="ts">
+import { watch } from 'vue';
+import { useRoute } from 'vue-router';
 import menuService from '@/composables/menu';
-// import { IMenu } from '#/menu';
-// import menuStore from '@/store/menuStore';
-// import router from '@/router';
 
-// const menus = menuStore().menus;
-
-// const resetMenus = () => {
-//   menus.forEach((pMenu) => {
-//     pMenu.isClick = false;
-//     pMenu.children?.forEach((cMenu) => {
-//       cMenu.isClick = false;
-//     });
-//   });
-// };
-
-// const handleClick = (pMenu: IMenu, cMenu?: IMenu) => {
-//   resetMenus();
-//   pMenu.isClick = true;
-//   if (cMenu) {
-//     cMenu.isClick = true;
-//     router.push({
-//       name: cMenu.route,
-//     });
-//   }
-// };
+const route = useRoute();
+watch(route, () => menuService.setCurrentMenu(route), {
+  immediate: true,
+});
 </script>
 
 <template>
-  <div class="menu w-[200px] bg-gray-800 p-4">
-    <div class="logo text-gray-300 flex items-center">
+  <div class="menu w-[200px] bg-gray-800">
+    <div class="logo text-gray-300 flex items-center p-4">
       <i class="fas fa-robot text-fuchsia-300 mr-2 text-[25px]"></i>
       <span class="text-md">Hello world ~</span>
     </div>
     <!-- menu -->
     <div class="left-container">
+      <dl>
+        <dt
+          :class="{
+            'bg-violet-600 text-white': $route.name === 'admin.home',
+          }"
+          @click="$router.push('/admin')"
+        >
+          <section class="flex items-center">
+            <i class="fas fa-home"></i>
+            <span>dashboard</span>
+          </section>
+        </dt>
+      </dl>
       <dl v-for="(menu, index) of menuService.menus.value" :key="index">
         <dt @click="menu.isClick = true">
           <section class="flex items-center">
@@ -68,7 +63,7 @@ import menuService from '@/composables/menu';
     dl {
       @apply text-gray-300 text-sm;
       dt {
-        @apply text-base mt-4 flex justify-between items-center cursor-pointer;
+        @apply text-base p-2 flex justify-between items-center cursor-pointer;
         section {
           @apply flex items-center;
           i {

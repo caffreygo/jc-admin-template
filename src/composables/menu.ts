@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import router from '@/router';
 import utils from '@/utils';
 import { CacheEnum } from '@/enum/cacheEnum';
+import { RouteLocationNormalizedLoaded } from 'vue-router';
 
 class Menu {
   public menus = ref<IMenu[]>([]);
@@ -13,6 +14,20 @@ class Menu {
   init() {
     this.menus.value = this.getMenuByRoute();
     this.history.value = utils.store.get(CacheEnum.HISTORY_MENUS) ?? [];
+  }
+
+  setCurrentMenu(route: RouteLocationNormalizedLoaded) {
+    this.menus.value.forEach((m) => {
+      m.isClick = false;
+      m.children?.forEach((c) => {
+        if (c.route === route.name) {
+          m.isClick = true;
+          c.isClick = true;
+        } else {
+          c.isClick = false;
+        }
+      });
+    });
   }
 
   private getMenuByRoute() {

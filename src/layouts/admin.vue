@@ -17,17 +17,26 @@ onBeforeRouteUpdate(() => {
 </script>
 
 <template>
-  <div class="admin min-h-screen w-screen flex">
+  <div class="admin h-screen w-screen grid grid-cols-[auto_1fr]">
     <menu-component class="hidden md:block" />
-    <div class="content bg-gray-100 flex-1">
-      <navbar />
-      <history-link />
-      <div class="m-4">
+    <div class="content bg-gray-100 grid grid-rows-[auto_1fr]">
+      <div>
+        <navbar />
+        <history-link />
+      </div>
+      <div class="p-3 relative overflow-y-auto">
         <router-view v-slot="{ Component }">
           <transition
-            enter-active-class="animate__animated animate__bounceInRight"
+            appear
+            class="animate__animated"
+            :enter-active-class="
+              route.meta.enterClass ?? 'animate__fadeInRight'
+            "
+            :leave-active-class="
+              route.meta.leaveClass ?? 'animate__fadeOutLeft'
+            "
           >
-            <component :is="Component" />
+            <component :is="Component" class="absolute w-full" />
           </transition>
         </router-view>
       </div>
@@ -45,4 +54,11 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.animate__fadeInRight {
+  animation-duration: 0.5s;
+}
+.animate__fadeOutLeft {
+  animation-duration: 0.3s;
+}
+</style>
