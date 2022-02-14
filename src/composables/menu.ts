@@ -8,12 +8,14 @@ class Menu {
   public menus = ref<IMenu[]>([]);
   public history = ref<IMenu[]>([]);
 
-  constructor() {
+  constructor() {}
+
+  init() {
     this.menus.value = this.getMenuByRoute();
     this.history.value = utils.store.get(CacheEnum.HISTORY_MENUS) ?? [];
   }
 
-  getMenuByRoute() {
+  private getMenuByRoute() {
     return router
       .getRoutes()
       .filter((route) => route.children.length && route.meta.menu)

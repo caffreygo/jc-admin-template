@@ -7,8 +7,8 @@ import '@/styles/global.scss';
 async function bootstrap() {
   const app = createApp(App);
 
-  setupRouter(app);
   setupPlugins(app);
+  setupRouter(app);
 
   await router.isReady();
   app.mount('#app');

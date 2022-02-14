@@ -1,3 +1,32 @@
+<script setup lang="ts">
+import menuService from '@/composables/menu';
+// import { IMenu } from '#/menu';
+// import menuStore from '@/store/menuStore';
+// import router from '@/router';
+
+// const menus = menuStore().menus;
+
+// const resetMenus = () => {
+//   menus.forEach((pMenu) => {
+//     pMenu.isClick = false;
+//     pMenu.children?.forEach((cMenu) => {
+//       cMenu.isClick = false;
+//     });
+//   });
+// };
+
+// const handleClick = (pMenu: IMenu, cMenu?: IMenu) => {
+//   resetMenus();
+//   pMenu.isClick = true;
+//   if (cMenu) {
+//     cMenu.isClick = true;
+//     router.push({
+//       name: cMenu.route,
+//     });
+//   }
+// };
+</script>
+
 <template>
   <div class="menu w-[200px] bg-gray-800 p-4">
     <div class="logo text-gray-300 flex items-center">
@@ -6,8 +35,8 @@
     </div>
     <!-- menu -->
     <div class="left-container">
-      <dl v-for="(menu, index) of menus" :key="index">
-        <dt @click="handleClick(menu)">
+      <dl v-for="(menu, index) of menuService.menus.value" :key="index">
+        <dt @click="menu.isClick = true">
           <section class="flex items-center">
             <i :class="menu.icon"></i>
             <span>{{ menu.title }}</span>
@@ -24,7 +53,7 @@
           v-show="menu.isClick"
           :key="key"
           :class="{ active: cMenu.isClick }"
-          @click="handleClick(menu, cMenu)"
+          @click="$router.push({ name: cMenu.route })"
         >
           {{ cMenu.title }}
         </dd>
@@ -32,34 +61,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { IMenu } from '#/menu';
-import menuStore from '@/store/menuStore';
-import router from '@/router';
-
-const menus = menuStore().menus;
-
-const resetMenus = () => {
-  menus.forEach((pMenu) => {
-    pMenu.isClick = false;
-    pMenu.children?.forEach((cMenu) => {
-      cMenu.isClick = false;
-    });
-  });
-};
-
-const handleClick = (pMenu: IMenu, cMenu?: IMenu) => {
-  resetMenus();
-  pMenu.isClick = true;
-  if (cMenu) {
-    cMenu.isClick = true;
-    router.push({
-      name: cMenu.route,
-    });
-  }
-};
-</script>
 
 <style scoped lang="scss">
 .menu {

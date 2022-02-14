@@ -1,36 +1,38 @@
 <template>
-  <div class="grid md:grid-cols-4 gap-3 bg-gray-100">
-    <el-card
-      v-for="(card, index) of cards"
-      :key="index"
-      shadow="hover"
-      :body-style="{ padding: '20px' }"
-    >
-      <template #header>
-        <div class="flex justify-between items-center">
-          {{ card.title }}
-          <el-tag type="danger" size="small" effect="dark">月</el-tag>
-        </div>
-      </template>
-      <section class="flex mt-3 justify-between items-center">
-        <span class="text-3xl">{{ card.price }}</span>
-        <i :class="[card.icon, card.iconColor]" class="text-5xl"> </i>
-      </section>
-      <section class="text-base mt-6 flex justify-between">
-        {{ card.totalTitle }}
-        <span>{{ card.total }}</span>
-      </section>
-    </el-card>
-  </div>
-  <div class="mt-5 grid md:grid-cols-2 gap-3">
-    <el-card shadow="hover">
-      <template #header> 用户统计 </template>
-      <div id="chart1" class="h-72 w-full"></div>
-    </el-card>
-    <el-card shadow="hover">
-      <template #header> 销售额 </template>
-      <div id="chart2" class="h-72 w-full"></div>
-    </el-card>
+  <div>
+    <div class="grid md:grid-cols-4 gap-3 bg-gray-100">
+      <el-card
+        v-for="(card, index) of cards"
+        :key="index"
+        shadow="hover"
+        :body-style="{ padding: '20px' }"
+      >
+        <template #header>
+          <div class="flex justify-between items-center">
+            {{ card.title }}
+            <el-tag type="danger" size="small" effect="dark">月</el-tag>
+          </div>
+        </template>
+        <section class="flex mt-3 justify-between items-center">
+          <span class="text-3xl">{{ card.price }}</span>
+          <i :class="[card.icon, card.iconColor]" class="text-5xl"> </i>
+        </section>
+        <section class="text-base mt-6 flex justify-between">
+          {{ card.totalTitle }}
+          <span>{{ card.total }}</span>
+        </section>
+      </el-card>
+    </div>
+    <div class="mt-5 grid md:grid-cols-2 gap-3">
+      <el-card shadow="hover">
+        <template #header> 用户统计 </template>
+        <div id="chart1" class="h-72 w-full"></div>
+      </el-card>
+      <el-card shadow="hover">
+        <template #header> 销售额 </template>
+        <div id="chart2" class="h-72 w-full"></div>
+      </el-card>
+    </div>
   </div>
 </template>
 

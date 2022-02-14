@@ -3,10 +3,12 @@ import MenuComponent from './admin/menu.vue';
 import Navbar from './admin/navbar.vue';
 import HistoryLink from './admin/historyLink.vue';
 import menuStore from '@/store/menuStore';
+import menuService from '@/composables/menu';
 import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 
 const route = useRoute();
 const menu = menuStore();
+menuService.init();
 menu.init();
 
 onBeforeRouteUpdate(() => {
