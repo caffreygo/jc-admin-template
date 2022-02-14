@@ -1,11 +1,10 @@
-# Vue 3 + Typescript + Vite
+# JC admin template
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
-
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+- 👉 vite & vue3 + ts + elementUI + pinia + vue-router
+- ⚙️ eslint with recommend rules
+- 🔑 代码提交检查
+- 💡 vs code编辑器自动格式化
+- 🔌 完善的类型声明，utils with env and store...
+- 📦 管理员与访客模式
+- 🏗 composable与pinia两种方式数据管理
+- 🏗 autoload与manual module两种路由声明
