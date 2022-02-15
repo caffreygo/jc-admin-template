@@ -8,6 +8,7 @@ import { RouteLocationNormalizedLoaded } from 'vue-router';
 class Menu {
   public menus = ref<IMenu[]>([]);
   public history = ref<IMenu[]>([]);
+  public close = ref(false);
 
   constructor() {}
 
@@ -16,15 +17,18 @@ class Menu {
     this.history.value = utils.store.get(CacheEnum.HISTORY_MENUS) ?? [];
   }
 
+  toggleState() {
+    this.close.value = !this.close.value;
+  }
+
   setCurrentMenu(route: RouteLocationNormalizedLoaded) {
     this.menus.value.forEach((m) => {
       m.isClick = false;
       m.children?.forEach((c) => {
+        c.isClick = false;
         if (c.route === route.name) {
           m.isClick = true;
           c.isClick = true;
-        } else {
-          c.isClick = false;
         }
       });
     });

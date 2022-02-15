@@ -17,14 +17,14 @@ onBeforeRouteUpdate(() => {
 </script>
 
 <template>
-  <div class="admin h-screen w-screen grid grid-cols-[auto_1fr]">
-    <menu-component class="hidden md:block" />
+  <div class="admin h-screen w-screen grid md:grid-cols-[auto_1fr]">
+    <menu-component />
     <div class="content bg-gray-100 grid grid-rows-[auto_1fr]">
       <div>
         <navbar />
         <history-link />
       </div>
-      <div class="p-3 relative overflow-y-auto">
+      <div class="m-3 relative overflow-y-auto">
         <router-view v-slot="{ Component }">
           <transition
             appear

@@ -10,13 +10,16 @@ watch(route, () => menuService.setCurrentMenu(route), {
 </script>
 
 <template>
-  <div class="menu w-[200px] bg-gray-800">
-    <div class="logo text-gray-300 flex items-center p-4">
+  <div
+    class="menu w-[200px] bg-gray-800"
+    :class="{ close: menuService.close.value }"
+  >
+    <div class="logo">
       <i class="fas fa-robot text-fuchsia-300 mr-2 text-[25px]"></i>
       <span class="text-md">Hello world ~</span>
     </div>
     <!-- menu -->
-    <div class="left-container">
+    <div class="container">
       <dl>
         <dt
           :class="{
@@ -55,11 +58,15 @@ watch(route, () => menuService.setCurrentMenu(route), {
       </dl>
     </div>
   </div>
+  <div class="bg block md:hidden"></div>
 </template>
 
 <style scoped lang="scss">
 .menu {
-  .left-container {
+  .logo {
+    @apply text-gray-300 flex items-center p-4;
+  }
+  .container {
     dl {
       @apply text-gray-300 text-sm;
       dt {
@@ -78,6 +85,46 @@ watch(route, () => menuService.setCurrentMenu(route), {
         }
       }
     }
+  }
+  &.close {
+    width: auto;
+    .logo {
+      i {
+        @apply mr-0;
+      }
+      span {
+        @apply hidden;
+      }
+    }
+    .container {
+      dl {
+        dt {
+          @apply flex items-center justify-center;
+          section {
+            i {
+              @apply mr-0;
+            }
+            span {
+              @apply hidden;
+            }
+            &:nth-of-type(2) {
+              @apply hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .menu {
+    @apply h-screen w-[200px] absolute left-0 top-0 z-50;
+    &.close {
+    }
+  }
+  .bg {
+    @apply bg-gray-100 opacity-75 w-screen h-screen absolute left-0 top-0 z-40;
   }
 }
 </style>
