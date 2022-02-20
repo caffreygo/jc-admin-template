@@ -10,28 +10,20 @@ watch(route, () => menuService.setCurrentMenu(route), {
 </script>
 
 <template>
-  <div class="menu w-[200px] bg-gray-800">
-    <div class="logo text-gray-300 flex items-center p-4">
+  <!-- menu -->
+  <div
+    class="menu w-[200px] bg-gray-800"
+    :class="{ close: menuService.close.value }"
+  >
+    <!-- logo -->
+    <div class="logo">
       <i class="fas fa-robot text-fuchsia-300 mr-2 text-[25px]"></i>
       <span class="text-md">Hello world ~</span>
     </div>
-    <!-- menu -->
-    <div class="left-container">
-      <dl>
-        <dt
-          :class="{
-            'bg-violet-600 text-white': $route.name === 'admin.home',
-          }"
-          @click="$router.push('/admin')"
-        >
-          <section class="flex items-center">
-            <i class="fas fa-home"></i>
-            <span>dashboard</span>
-          </section>
-        </dt>
-      </dl>
+    <!-- menu items -->
+    <div class="container">
       <dl v-for="(menu, index) of menuService.menus.value" :key="index">
-        <dt @click="menu.isClick = true">
+        <dt @click="menuService.toggleParentMenu(menu)">
           <section class="flex items-center">
             <i :class="menu.icon"></i>
             <span>{{ menu.title }}</span>
@@ -44,22 +36,34 @@ watch(route, () => menuService.setCurrentMenu(route), {
           </section>
         </dt>
         <dd
-          v-for="(cMenu, key) of menu.children"
-          v-show="menu.isClick"
-          :key="key"
-          :class="{ active: cMenu.isClick }"
-          @click="$router.push({ name: cMenu.route })"
+          :class="menu.isClick && !menuService.close.value ? 'block' : 'hidden'"
         >
-          {{ cMenu.title }}
+          <div
+            v-for="(cMenu, key) of menu.children"
+            :key="key"
+            :class="{ active: cMenu.isClick }"
+            @click="$router.push({ name: cMenu.route })"
+          >
+            {{ cMenu.title }}
+          </div>
         </dd>
       </dl>
     </div>
   </div>
+  <!-- mask under mobile -->
+  <div
+    class="bg block md:hidden"
+    :class="{ close: menuService.close.value }"
+    @click="menuService.toggleState"
+  ></div>
 </template>
 
 <style scoped lang="scss">
 .menu {
-  .left-container {
+  .logo {
+    @apply text-gray-300 flex items-center p-4;
+  }
+  .container {
     dl {
       @apply text-gray-300 text-sm;
       dt {
@@ -72,11 +76,65 @@ watch(route, () => menuService.setCurrentMenu(route), {
         }
       }
       dd {
-        @apply py-2 pl-4 my-2 rounded-md cursor-pointer hover:bg-violet-500 duration-300 bg-gray-700;
-        &.active {
-          @apply bg-violet-700 text-white;
+        @apply px-2;
+        div {
+          @apply py-2 pl-4 my-2 rounded-md cursor-pointer hover:bg-violet-500 duration-300 bg-gray-700;
+          &.active {
+            @apply bg-violet-700 text-white;
+          }
         }
       }
+    }
+  }
+  &.close {
+    width: auto;
+    .logo {
+      i {
+        @apply mr-0;
+      }
+      span {
+        @apply hidden;
+      }
+    }
+    .container {
+      dl {
+        @apply relative z-10;
+        dt {
+          @apply flex items-center justify-center;
+          section {
+            i {
+              @apply mr-0;
+            }
+            span {
+              @apply hidden;
+            }
+            &:nth-of-type(2) {
+              @apply hidden;
+            }
+          }
+        }
+        &:hover {
+          dd {
+            display: block !important;
+            @apply absolute left-full top-0 w-[200px] bg-gray-700;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .menu {
+    @apply h-screen w-[200px] absolute left-0 top-0 z-50;
+    &.close {
+      @apply hidden;
+    }
+  }
+  .bg {
+    @apply bg-gray-100 opacity-75 w-screen h-screen absolute left-0 top-0 z-40;
+    &.close {
+      @apply hidden;
     }
   }
 }
