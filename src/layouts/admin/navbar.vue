@@ -4,11 +4,11 @@
       <div @click="menuService.toggleState">
         <i
           v-if="menuService.close.value"
-          class="fa fa-caret-square-right mr-2 text-gray-600 cursor-pointer"
+          class="fa fa-align-right mr-2 text-gray-600 cursor-pointer"
         ></i>
         <i
           v-else
-          class="fa fa-caret-square-left mr-2 text-gray-600 cursor-pointer"
+          class="fa fa-align-left mr-2 text-gray-600 cursor-pointer"
         ></i>
       </div>
       <el-breadcrumb separator="/">
@@ -21,7 +21,7 @@
       <img :src="user.info?.avatar" class="w-8 h-8 rounded-full object-cover" />
       <span class="ml-1 text-sm text-gray-600">{{ user.info?.name }}</span>
       <section
-        class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap rounded-md hidden"
+        class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap rounded-md hidden z-10"
       >
         <div class="flex items-center cursor-pointer border-b py-3">
           <a class="fas fa-file"></a>
