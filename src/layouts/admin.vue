@@ -2,29 +2,33 @@
 import MenuComponent from './admin/menu.vue';
 import Navbar from './admin/navbar.vue';
 import HistoryLink from './admin/historyLink.vue';
-import menuStore from '@/store/menuStore';
 import menuService from '@/composables/menu';
-import { onBeforeRouteUpdate, useRoute } from 'vue-router';
+import { useRoute } from 'vue-router';
+import { watch } from 'vue';
 
-const route = useRoute();
-const menu = menuStore();
 menuService.init();
-menu.init();
+const route = useRoute();
 
-onBeforeRouteUpdate(() => {
-  menu.addHistoryMenu(route);
-});
+watch(
+  route,
+  () => {
+    menuService.addHistoryMenu(route);
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 
 <template>
-  <div class="admin h-screen w-screen grid grid-cols-[auto_1fr]">
-    <menu-component class="hidden md:block" />
+  <div class="admin h-screen w-screen grid md:grid-cols-[auto_1fr]">
+    <menu-component />
     <div class="content bg-gray-100 grid grid-rows-[auto_1fr]">
       <div>
         <navbar />
         <history-link />
       </div>
-      <div class="p-3 relative overflow-y-auto">
+      <div class="m-3 relative overflow-y-auto">
         <router-view v-slot="{ Component }">
           <transition
             appear
