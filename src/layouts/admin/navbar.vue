@@ -1,15 +1,28 @@
 <template>
   <div class="bg-white p-3 px-5 flex justify-between items-center">
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">编辑器</el-breadcrumb-item>
-      <el-breadcrumb-item>富文本编辑器</el-breadcrumb-item>
-    </el-breadcrumb>
+    <div class="flex items-center">
+      <div @click="menuService.toggleState">
+        <i
+          v-if="menuService.close.value"
+          class="fa fa-align-right mr-2 text-gray-600 cursor-pointer"
+        ></i>
+        <i
+          v-else
+          class="fa fa-align-left mr-2 text-gray-600 cursor-pointer"
+        ></i>
+      </div>
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">编辑器</el-breadcrumb-item>
+        <el-breadcrumb-item>富文本编辑器</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
 
     <div class="flex justify-center items-center relative group cursor-pointer">
+      <i class="fas fa-expand mr-2" @click="fullScreen"></i>
       <img :src="user.info?.avatar" class="w-8 h-8 rounded-full object-cover" />
       <span class="ml-1 text-sm text-gray-600">{{ user.info?.name }}</span>
       <section
-        class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap rounded-md hidden"
+        class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap rounded-md hidden z-10"
       >
         <div class="flex items-center cursor-pointer border-b py-3">
           <a class="fas fa-file"></a>
@@ -33,7 +46,13 @@
 
 <script lang="ts" setup>
 import userStore from '@/store/userStore';
+import menuService from '@/composables/menu';
 import utils from '@/utils';
+import { disConnect } from 'echarts/core';
 
 const user = userStore();
+
+const fullScreen = () => {
+  document.documentElement.requestFullscreen();
+};
 </script>
