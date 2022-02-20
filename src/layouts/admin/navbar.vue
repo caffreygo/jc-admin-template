@@ -18,6 +18,7 @@
     </div>
 
     <div class="flex justify-center items-center relative group cursor-pointer">
+      <i class="fas fa-expand mr-2" @click="fullScreen"></i>
       <img :src="user.info?.avatar" class="w-8 h-8 rounded-full object-cover" />
       <span class="ml-1 text-sm text-gray-600">{{ user.info?.name }}</span>
       <section
@@ -47,6 +48,11 @@
 import userStore from '@/store/userStore';
 import menuService from '@/composables/menu';
 import utils from '@/utils';
+import { disConnect } from 'echarts/core';
 
 const user = userStore();
+
+const fullScreen = () => {
+  document.documentElement.requestFullscreen();
+};
 </script>

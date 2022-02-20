@@ -3,7 +3,10 @@ import { ref } from 'vue';
 import router from '@/router';
 import utils from '@/utils';
 import { CacheEnum } from '@/enum/cacheEnum';
-import { RouteLocationNormalizedLoaded } from 'vue-router';
+import {
+  RouteLocationNormalized,
+  RouteLocationNormalizedLoaded,
+} from 'vue-router';
 
 class Menu {
   public menus = ref<IMenu[]>([]);
@@ -39,6 +42,24 @@ class Menu {
         }
       });
     });
+  }
+
+  removeHistoryMenu(menu: IMenu) {
+    const index = this.history.value.indexOf(menu);
+    this.history.value.splice(index, 1);
+  }
+
+  addHistoryMenu(route: RouteLocationNormalized) {
+    if (!route.meta?.menu) return;
+
+    const menu: IMenu = { ...route.meta.menu, route: route.name as string };
+    const isHas = this.history.value.some((menu) => menu.route === route.name);
+    if (!isHas) this.history.value.unshift(menu);
+    if (this.history.value.length > 10) {
+      this.history.value.pop();
+    }
+
+    utils.store.set(CacheEnum.HISTORY_MENUS, this.history.value);
   }
 
   private getMenuByRoute() {

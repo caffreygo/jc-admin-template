@@ -10,15 +10,17 @@ watch(route, () => menuService.setCurrentMenu(route), {
 </script>
 
 <template>
+  <!-- menu -->
   <div
     class="menu w-[200px] bg-gray-800"
     :class="{ close: menuService.close.value }"
   >
+    <!-- logo -->
     <div class="logo">
       <i class="fas fa-robot text-fuchsia-300 mr-2 text-[25px]"></i>
       <span class="text-md">Hello world ~</span>
     </div>
-    <!-- menu -->
+    <!-- menu items -->
     <div class="container">
       <dl v-for="(menu, index) of menuService.menus.value" :key="index">
         <dt @click="menuService.toggleParentMenu(menu)">
@@ -48,6 +50,7 @@ watch(route, () => menuService.setCurrentMenu(route), {
       </dl>
     </div>
   </div>
+  <!-- mask under mobile -->
   <div
     class="bg block md:hidden"
     :class="{ close: menuService.close.value }"
