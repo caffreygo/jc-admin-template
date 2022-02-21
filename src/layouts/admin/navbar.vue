@@ -17,29 +17,39 @@
       </el-breadcrumb>
     </div>
 
-    <div class="flex justify-center items-center relative group cursor-pointer">
-      <i class="fas fa-expand mr-3 text-violet-400" @click="fullScreen"></i>
-      <img :src="user.info?.avatar" class="w-8 h-8 rounded-full object-cover" />
-      <span class="ml-1 text-sm text-gray-600">{{ user.info?.name }}</span>
-      <section
-        class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap rounded-md hidden z-10"
-      >
-        <div class="flex items-center cursor-pointer border-b py-3">
-          <a class="fas fa-file"></a>
-          <span class="text-xs text-gray-600 ml-2">文档资料</span>
+    <div class="flex justify-center items-center relative cursor-pointer">
+      <Notification class="mr-8" />
+      <i class="fas fa-expand mr-8 text-violet-400" @click="fullScreen"></i>
+      <div class="group relative">
+        <div class="flex items-center">
+          <img
+            :src="user.info?.avatar"
+            class="w-8 h-8 rounded-full object-cover"
+          />
+          <span class="ml-1 text-sm text-gray-600">{{ user.info?.name }}</span>
         </div>
-        <div class="flex items-center cursor-pointer border-b py-3">
-          <a class="fas fa-user-astronaut"></a>
-          <span class="text-xs text-gray-600 ml-2">用户管理</span>
-        </div>
-        <div
-          class="flex items-center cursor-pointer border-b py-3"
-          @click="utils.user.logout"
+        <section
+          class="group-hover:block absolute right-0 top-full bg-white shadow-sm px-5 whitespace-nowrap rounded-md hidden z-10"
         >
-          <a class="fas fa-sign-out-alt"></a>
-          <span class="text-xs text-gray-600 ml-2">退出登录</span>
-        </div>
-      </section>
+          <div
+            class="flex items-center justify-center ursor-pointer border-b py-3"
+          >
+            <a class="fas fa-file"></a>
+            <span class="text-xs text-gray-600 ml-2">文档资料</span>
+          </div>
+          <div class="flex items-center cursor-pointer border-b py-3">
+            <a class="fas fa-user-astronaut"></a>
+            <span class="text-xs text-gray-600 ml-2">用户管理</span>
+          </div>
+          <div
+            class="flex items-center cursor-pointer border-b py-3"
+            @click="utils.user.logout"
+          >
+            <a class="fas fa-sign-out-alt"></a>
+            <span class="text-xs text-gray-600 ml-2">退出登录</span>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -48,6 +58,7 @@
 import userStore from '@/store/userStore';
 import menuService from '@/composables/menu';
 import utils from '@/utils';
+import Notification from '@/components/Notification.vue';
 
 const user = userStore();
 
