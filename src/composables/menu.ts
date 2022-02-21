@@ -12,6 +12,7 @@ class Menu {
   public menus = ref<IMenu[]>([]);
   public history = ref<IMenu[]>([]);
   public close = ref(false);
+  public route = ref<null | RouteLocationNormalized>(null);
 
   constructor() {}
 
@@ -51,7 +52,7 @@ class Menu {
 
   addHistoryMenu(route: RouteLocationNormalized) {
     if (!route.meta?.menu) return;
-
+    this.route.value = route;
     const menu: IMenu = { ...route.meta.menu, route: route.name as string };
     const isHas = this.history.value.some((menu) => menu.route === route.name);
     if (!isHas) this.history.value.unshift(menu);

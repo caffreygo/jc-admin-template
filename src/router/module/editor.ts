@@ -13,7 +13,7 @@ export default {
   },
   children: [
     {
-      name: 'base',
+      name: 'editor.base',
       path: 'base',
       meta: {
         menu: {
@@ -23,7 +23,7 @@ export default {
       component: () => import('@/views/editor/base.vue'),
     },
     {
-      name: 'markdown',
+      name: 'editor.markdown',
       path: 'markdown',
       meta: {
         menu: {

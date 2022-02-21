@@ -11,15 +11,12 @@
           class="fa fa-align-left mr-2 text-gray-600 cursor-pointer"
         ></i>
       </div>
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">编辑器</el-breadcrumb-item>
-        <el-breadcrumb-item>富文本编辑器</el-breadcrumb-item>
-      </el-breadcrumb>
+      <Breadcrumb class="hidden md:block" />
     </div>
 
     <div class="flex justify-center items-center relative cursor-pointer">
-      <Notification class="mr-8" />
-      <i class="fas fa-expand mr-8 text-violet-400" @click="fullScreen"></i>
+      <Notification class="mr-5" />
+      <i class="fas fa-expand mr-5 text-violet-400" @click="fullScreen"></i>
       <div class="group relative">
         <div class="flex items-center">
           <img
@@ -59,6 +56,7 @@ import userStore from '@/store/userStore';
 import menuService from '@/composables/menu';
 import utils from '@/utils';
 import Notification from '@/components/Notification.vue';
+import Breadcrumb from '@/components/breadcrumb.vue';
 
 const user = userStore();
 
