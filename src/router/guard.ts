@@ -19,7 +19,6 @@ class Guard {
     if (this.isGuest(to) === false) {
       return from;
     }
-    await this.getUserInfo();
   }
 
   private getUserInfo() {

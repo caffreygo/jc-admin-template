@@ -6,7 +6,9 @@ import { CacheEnum } from '@/enum/cacheEnum';
 import {
   RouteLocationNormalized,
   RouteLocationNormalizedLoaded,
+  RouteRecordRaw,
 } from 'vue-router';
+import store from '@/utils/store';
 
 class Menu {
   public menus = ref<IMenu[]>([]);
@@ -18,7 +20,7 @@ class Menu {
 
   init() {
     this.menus.value = this.getMenuByRoute();
-    this.history.value = utils.store.get(CacheEnum.HISTORY_MENUS) ?? [];
+    this.history.value = this.getHistoryMenu();
   }
 
   toggleParentMenu(menu: IMenu) {
@@ -45,9 +47,22 @@ class Menu {
     });
   }
 
+  private getHistoryMenu() {
+    const childrenRoutes = [] as RouteRecordRaw[];
+    router.getRoutes().forEach((route) => {
+      childrenRoutes.push(...route.children);
+    });
+    const menus: IMenu[] = utils.store.get(CacheEnum.HISTORY_MENUS) ?? [];
+    //** router的路由是经过权限过滤的，从本地缓存获取的历史路由需要过滤掉不存在（无权限）的部分 */
+    return menus.filter((menu) => {
+      return childrenRoutes.some((route) => route.name === menu.route);
+    });
+  }
+
   removeHistoryMenu(menu: IMenu) {
     const index = this.history.value.indexOf(menu);
     this.history.value.splice(index, 1);
+    store.set(CacheEnum.HISTORY_MENUS, this.history.value);
   }
 
   addHistoryMenu(route: RouteLocationNormalized) {

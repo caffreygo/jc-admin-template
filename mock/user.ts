@@ -14,6 +14,7 @@ export default [
           name: 'Jerry Chen',
           age: 18,
           avatar: '/images/avatar.jpeg',
+          permissions: ['markdown_editor', 'base_editor'],
         },
       };
     },
