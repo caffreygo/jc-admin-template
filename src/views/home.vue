@@ -31,6 +31,5 @@
 </template>
 
 <script lang="ts" setup>
-import Icon from '@/components/icon.vue';
 import { Bicycle } from '@element-plus/icons-vue';
 </script>
