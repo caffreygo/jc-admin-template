@@ -24,7 +24,7 @@
       est laborum."
     </div>
     <el-button type="primary">按钮</el-button>
-    <el-icon color="#ffffff" class="mt-4 text-5xl">
+    <el-icon color="#ffffff" class="mt-2" :size="80">
       <Bicycle />
     </el-icon>
   </div>
