@@ -1,6 +1,6 @@
 declare namespace toastui {
   class Editor {
-    constructor(options: any) {}
+    constructor(options: any);
     getMarkdown: () => string;
     getHTML: () => string;
     on: (event: string, callback: Function) => void;
@@ -9,4 +9,11 @@ declare namespace toastui {
     setHeight: (height: string) => void;
     focus: () => volid;
   }
+}
+
+declare class wangEditor {
+  constructor(el: string);
+  create: () => void;
+  config: { [key: string]: any };
+  txt: { [key: string]: any };
 }
