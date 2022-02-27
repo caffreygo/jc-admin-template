@@ -23,5 +23,15 @@ export default {
         },
       },
     },
+    {
+      name: 'admin.article',
+      path: 'article',
+      component: () => import('@/views/admin/article.vue'),
+      meta: {
+        menu: {
+          title: '动画列表',
+        },
+      },
+    },
   ],
 } as RouteRecordRaw;

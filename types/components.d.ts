@@ -4,7 +4,14 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AnimateList: typeof import('./../src/components/animateList.vue')['default'];
     Breadcrumb: typeof import('./../src/components/breadcrumb.vue')['default'];
+    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb'];
+    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem'];
+    ElCard: typeof import('element-plus/es')['ElCard'];
+    ElTabPane: typeof import('element-plus/es')['ElTabPane'];
+    ElTabs: typeof import('element-plus/es')['ElTabs'];
+    ElTag: typeof import('element-plus/es')['ElTag'];
     JcButton: typeof import('./../src/components/jc/button.vue')['default'];
     JcInput: typeof import('./../src/components/jc/input.vue')['default'];
     JcLink: typeof import('./../src/components/jc/link.vue')['default'];
