@@ -13,7 +13,7 @@ import menuService from '@/composables/menu';
         :key="index"
         :to="{ name: menu.route }"
         class="hover:bg-violet-600 hover:text-white bg-white rounded-sm duration-300 border py-2 px-3 text-sm text-gray-600"
-        :class="{ 'bg-violet-600 text-white': $route.name === menu.route }"
+        :class="{ '!bg-violet-600 !text-white': $route.name === menu.route }"
       >
         <router-link :to="{ name: menu.route }">
           {{ menu.title }}
