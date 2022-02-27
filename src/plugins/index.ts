@@ -1,13 +1,13 @@
 import { App } from 'vue';
 import { camelCase } from 'lodash';
 import { setupTailwindcss } from './tailwindcss';
-import setupElementPlus from './elementui';
+// import setupElementPlus from './elementui';
 import setupPinia from './pinia';
 
 export function setupPlugins(app: App) {
   autoRegisterComponent(app);
   setupTailwindcss();
-  setupElementPlus(app);
+  // setupElementPlus(app);
   setupPinia(app);
 }
 

@@ -20,7 +20,9 @@
       "./types"
     ],
     "types": [
-      "vite/client"
+      "vite/client",
+      "element-plus/global",
+      "echarts"
     ],
     "paths": {
       "@/*": [

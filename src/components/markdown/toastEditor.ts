@@ -53,7 +53,6 @@ export default class {
         }
       }
     );
-
     return button;
   }
 

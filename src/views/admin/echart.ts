@@ -1,118 +1,35 @@
-import * as echarts from 'echarts/core';
-import {
-  TitleComponent,
-  TitleComponentOption,
-  TooltipComponent,
-  TooltipComponentOption,
-  LegendComponent,
-  LegendComponentOption,
-  GridComponent,
-  GridComponentOption,
-} from 'echarts/components';
-import {
-  PieChart,
-  PieSeriesOption,
-  BarChart,
-  BarSeriesOption,
-} from 'echarts/charts';
-import { LabelLayout } from 'echarts/features';
-import { CanvasRenderer } from 'echarts/renderers';
-
-echarts.use([
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  PieChart,
-  CanvasRenderer,
-  LabelLayout,
-  GridComponent,
-  BarChart,
-]);
-
-type PieChartOption = echarts.ComposeOption<
-  | TitleComponentOption
-  | TooltipComponentOption
-  | LegendComponentOption
-  | PieSeriesOption
-  | GridComponentOption
-  | BarSeriesOption
->;
-
-type BarChartOption = echarts.ComposeOption<
-  TooltipComponentOption | GridComponentOption | BarSeriesOption
->;
-
-export default echarts;
-
-export const echart1: PieChartOption = {
+export const echart1 = {
   title: {
-    text: 'Referer of a Website',
-    subtext: 'Fake Data',
-    left: 'center',
+    text: 'ECharts 入门示例',
   },
-  tooltip: {
-    trigger: 'item',
+  tooltip: {},
+  xAxis: {
+    data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
   },
-  legend: {
-    orient: 'vertical',
-    left: 'left',
-  },
+  yAxis: {},
   series: [
     {
-      name: 'Access From',
-      type: 'pie',
-      radius: '50%',
-      data: [
-        { value: 1048, name: 'Search Engine' },
-        { value: 735, name: 'Direct' },
-        { value: 580, name: 'Email' },
-        { value: 484, name: 'Union Ads' },
-        { value: 300, name: 'Video Ads' },
-      ],
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)',
-        },
-      },
+      name: '销量',
+      type: 'bar',
+      data: [5, 20, 36, 10, 10, 20],
     },
   ],
 };
 
-export const echart2: BarChartOption = {
-  tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'shadow',
-    },
+export const echart2 = {
+  title: {
+    text: 'ECharts 入门示例',
   },
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true,
+  tooltip: {},
+  xAxis: {
+    data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
   },
-  xAxis: [
-    {
-      type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      axisTick: {
-        alignWithLabel: true,
-      },
-    },
-  ],
-  yAxis: [
-    {
-      type: 'value',
-    },
-  ],
+  yAxis: {},
   series: [
     {
-      name: 'Direct',
+      name: '销量',
       type: 'bar',
-      barWidth: '80%',
-      data: [10, 52, 200, 334, 390, 330, 220],
+      data: [5, 20, 36, 10, 10, 20],
     },
   ],
 };
