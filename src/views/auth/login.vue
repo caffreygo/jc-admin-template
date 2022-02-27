@@ -35,7 +35,7 @@
             <!-- <jc-input v-model="form.account" placeholder="请输入手机号或邮箱" />
           <jc-input class="mt-4" placeholder="请输入登录密码" /> -->
           </div>
-          <jc-button class="mt-5 w-full" />
+          <JcButton class="mt-5 w-full" />
           <div class="flex justify-center mt-3">
             <i
               class="fab fa-weixin bg-green-600 text-white rounded-full p-1 cursor-pointer"
@@ -43,9 +43,9 @@
           </div>
         </div>
         <div class="flex gap-2 justify-center mt-5">
-          <jc-link />
-          <jc-link />
-          <jc-link />
+          <JcLink />
+          <JcLink />
+          <JcLink />
         </div>
       </div>
       <div class="hidden md:block relative">

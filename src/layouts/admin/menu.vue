@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { watch } from 'vue';
-import { useRoute } from 'vue-router';
 import menuService from '@/composables/menu';
 
 const route = useRoute();

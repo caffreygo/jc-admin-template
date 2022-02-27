@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+import userStore from '@/store/userStore';
+import menuService from '@/composables/menu';
+import utils from '@/utils';
+const user = userStore();
+
+const fullScreen = () => {
+  document.documentElement.requestFullscreen();
+};
+</script>
+
 <template>
   <div class="bg-white p-3 px-5 flex justify-between items-center">
     <div class="flex items-center">
@@ -50,17 +61,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import userStore from '@/store/userStore';
-import menuService from '@/composables/menu';
-import utils from '@/utils';
-import Notification from '@/components/Notification.vue';
-import Breadcrumb from '@/components/breadcrumb.vue';
-
-const user = userStore();
-
-const fullScreen = () => {
-  document.documentElement.requestFullscreen();
-};
-</script>

@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+// ElMessage is imported by auto imports
+ElMessage.success('Hello! Auto imported by unplugin-auto-import.');
+</script>
+
 <template>
   <div
     class="h-screen w-screen bg-gray-700 flex flex-col justify-center items-center"

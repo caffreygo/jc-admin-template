@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, nextTick } from 'vue';
 import { echart1, echart2 } from './echart';
+
 interface ICard {
   title: string;
   price: number;

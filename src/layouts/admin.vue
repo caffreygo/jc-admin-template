@@ -3,8 +3,6 @@ import MenuComponent from './admin/menu.vue';
 import Navbar from './admin/navbar.vue';
 import HistoryLink from './admin/historyLink.vue';
 import menuService from '@/composables/menu';
-import { useRoute } from 'vue-router';
-import { watch } from 'vue';
 
 menuService.init();
 const route = useRoute();
