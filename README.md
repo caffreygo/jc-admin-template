@@ -18,4 +18,4 @@
 
 > `yarn build`之后根目录下会生产**stats.html**，可视化并分析 Rollup 捆绑包以查看哪些模块占用了空间。
 
-![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/src/assets/screenshot.png)
+![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/screenshot.png)
