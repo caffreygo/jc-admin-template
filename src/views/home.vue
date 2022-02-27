@@ -24,7 +24,13 @@
       est laborum."
     </div>
     <el-button type="primary">按钮</el-button>
+    <el-icon color="#ffffff" class="mt-4 text-5xl">
+      <Bicycle />
+    </el-icon>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Icon from '@/components/icon.vue';
+import { Bicycle } from '@element-plus/icons-vue';
+</script>

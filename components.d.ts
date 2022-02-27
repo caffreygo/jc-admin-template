@@ -10,9 +10,11 @@ declare module 'vue' {
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem'];
     ElButton: typeof import('element-plus/es')['ElButton'];
     ElCard: typeof import('element-plus/es')['ElCard'];
+    ElIcon: typeof import('element-plus/es')['ElIcon'];
     ElTabPane: typeof import('element-plus/es')['ElTabPane'];
     ElTabs: typeof import('element-plus/es')['ElTabs'];
     ElTag: typeof import('element-plus/es')['ElTag'];
+    Icon: typeof import('./src/components/icon.vue')['default'];
     JcButton: typeof import('./src/components/form/jc-button.vue')['default'];
     JcInput: typeof import('./src/components/form/jc-input.vue')['default'];
     JcLink: typeof import('./src/components/form/jc-link.vue')['default'];
