@@ -96,7 +96,6 @@ nextTick(() => {
         <div id="echart2" class="h-72 w-full"></div>
       </el-card>
     </div>
-    <el-button type="primary">按钮</el-button>
   </div>
 </template>
 

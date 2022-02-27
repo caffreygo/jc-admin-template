@@ -23,6 +23,7 @@
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum."
     </div>
+    <el-button type="primary">按钮</el-button>
   </div>
 </template>
 
