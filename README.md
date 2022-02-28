@@ -20,4 +20,6 @@
 >
 > node 16 +
 
-![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/screenshot.png)
+![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/screenshot.jpg)
+![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/mobile.jpg)
+![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/menu.jpg)
