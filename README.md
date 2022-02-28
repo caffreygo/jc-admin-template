@@ -1,6 +1,6 @@
 # JC admin template
 
-- 👉 vite & vue3 + ts + elementUI + pinia + vue-router
+- 👉 vite & vue3 + ts + tailwindcss + elementUI + pinia
 - ⚙️ eslint with recommended rules
 - 🔑 代码提交检查
 - 💡 vs code编辑器自动格式化
@@ -17,5 +17,7 @@
 4. `yarn preview`：打包后预览
 
 > `yarn build`之后根目录下会生产**stats.html**，可视化并分析 Rollup 捆绑包以查看哪些模块占用了空间。
+>
+> node 16 +
 
 ![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/screenshot.png)
