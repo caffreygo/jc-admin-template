@@ -22,7 +22,7 @@
 
 ![JC admin template](https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/screenshot.jpg)
 
-| <img src="https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/mobile.jpg" alt="JC admin template" style="zoom: 33%;" /> | <img src="https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/menu.jpg" alt="JC admin template" style="zoom:33%;" /> |
+| <img src="https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/mobile.jpg" alt="JC admin template" style="zoom: 28%;" /> | <img src="https://raw.githubusercontent.com/caffreygo/jc-admin-template/develop/public/images/menu.jpg" alt="JC admin template" style="zoom:28%;" /> |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 
